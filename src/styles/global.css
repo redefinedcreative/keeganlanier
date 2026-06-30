@@ -168,13 +168,27 @@ body {
   background-size: 48px 48px;
 }
 
-/* ── Reveal animation primitives (driven by GSAP) ──────────────────────────
+/* ── Scroll reveal — IntersectionObserver toggles .is-visible (no JS library) ──
    Only hide when JS is present (.js on <html>); without JS, content shows. */
-.js [data-reveal] { opacity: 0; transform: translateY(28px); }
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s var(--ease-coaster), transform 0.7s var(--ease-coaster);
+}
+.js [data-reveal].is-visible { opacity: 1; transform: none; }
+
+/* ── Hero entrance — CSS-only so above-the-fold paints without waiting on JS.
+   Transform-only (no opacity fade) keeps the LCP headline at full opacity → fast LCP. */
+@keyframes heroRise {
+  from { transform: translateY(22px); }
+  to   { transform: none; }
+}
+.js .hero-rise { animation: heroRise 0.7s var(--ease-coaster) backwards; }
 
 /* Respect reduced motion: everything appears instantly, no transforms */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .js [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .hero-rise { animation: none !important; }
   * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
 }
