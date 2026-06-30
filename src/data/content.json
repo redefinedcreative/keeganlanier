@@ -1,0 +1,135 @@
+{
+  "meta": {
+    "name": "Keegan Lanier",
+    "title": "Keegan Lanier — Operator. Technologist. Builder.",
+    "description": "Technology leader and product builder. I pair operational rigor with engineering to build software and web systems engineered for outcomes — home of Redefined Creative, Orva, and PlainMind.",
+    "url": "https://keeganlanier.com"
+  },
+  "nav": {
+    "links": [
+      { "label": "The Operator", "href": "#operator" },
+      { "label": "The Builds", "href": "#builds" },
+      { "label": "How I Think", "href": "#philosophy" }
+    ]
+  },
+  "hero": {
+    "kicker": "Operator · Technologist · Builder",
+    "headlineLead": "I build the",
+    "headlineEmber": "systems",
+    "headlineTail": "behind the experience.",
+    "sub": "I've run kitchens and P&Ls, scaled technology for hyper-growth brands, and now I build software and web systems that are engineered to move the number that matters — not just look the part.",
+    "primaryCta": { "label": "See what I build", "href": "#builds" },
+    "secondaryCta": { "label": "The story", "href": "#operator" },
+    "scrollCue": "Begin the descent"
+  },
+  "operator": {
+    "kicker": "The Operator",
+    "heading": "Two lenses most people never combine.",
+    "lede": "A theme park runs on magic out front and ruthless systems in the back. I've spent my career on both sides of that line.",
+    "blocks": [
+      {
+        "tag": "Operations",
+        "title": "I learned business where the margins are thin.",
+        "body": "Kitchens, food-service operations, P&Ls, and leading teams under pressure — including at Pressed Juicery, where the work earned a Menu Masters Award. I know what it actually takes to run a business, because I've done it on tight margins and long days."
+      },
+      {
+        "tag": "Technology",
+        "title": "Then I went and built the systems.",
+        "body": "As a technology leader, I architect and scale the systems and automation that keep complex operations running — and I'm a power user of the tools that hold it all together. I bring that same enterprise-grade rigor to everything I ship."
+      },
+      {
+        "tag": "The Edge",
+        "title": "I understand the spreadsheet and the experience.",
+        "body": "Most technologists have never owned a P&L. Most operators can't build the system. I do both — so what I build is designed to generate results and protect your time, not just to look good in a portfolio."
+      }
+    ]
+  },
+  "builds": {
+    "kicker": "The Builds",
+    "heading": "Three things I've engineered.",
+    "lede": "An agency and two apps. Different surfaces, same instinct: build the thing that respects the person using it.",
+    "thread": "Orva and PlainMind share the same blueprint — calm, private, local-first software that respects your attention instead of mining it. I build the antidote to hype.",
+    "items": [
+      {
+        "name": "Redefined Creative",
+        "type": "Web & SEO Studio",
+        "status": "Live",
+        "tagline": "More booked jobs. Not just a better-looking website.",
+        "body": "My web design and local SEO studio. I build high-performance WordPress systems that turn home-service businesses into the local authority in their market — strategy, design, and the hosting to back it up.",
+        "href": "https://redefinedcreative.com",
+        "linkLabel": "redefinedcreative.com",
+        "cta": "Visit the studio",
+        "accent": "ember"
+      },
+      {
+        "name": "Orva",
+        "type": "iOS App",
+        "status": "In Beta",
+        "tagline": "The calm operating system for your life.",
+        "body": "A calendar and task app that protects your time instead of maximizing it. It caps your work hours, guards personal time, and drafts tomorrow's plan each night for your approval. Local-first and private — no accounts, no servers.",
+        "href": "https://getorva.app",
+        "linkLabel": "getorva.app",
+        "cta": "See Orva",
+        "accent": "neon"
+      },
+      {
+        "name": "PlainMind",
+        "type": "iOS App",
+        "status": "Open Beta",
+        "tagline": "Save anything. Find it later.",
+        "body": "A calm, private place for the links, music, places, and ideas you want to remember. Save from any app in one tap; everything auto-organizes by type, and on-device search finds it again. No feed, no tracking.",
+        "href": "https://plainmind.app",
+        "linkLabel": "plainmind.app",
+        "cta": "Join the beta",
+        "accent": "ember"
+      }
+    ]
+  },
+  "philosophy": {
+    "kicker": "How I Think",
+    "heading": "Systems over guesswork.",
+    "lede": "Four rules that show up in everything I build.",
+    "principles": [
+      {
+        "no": "01",
+        "title": "Systems over guesswork",
+        "body": "Decisions backed by how things actually work — data and operating reality — not opinion, ego, or whatever's trending."
+      },
+      {
+        "no": "02",
+        "title": "Built for outcomes",
+        "body": "A website, an app, a process: it only counts if it moves the number that matters. Pretty is table stakes, not the point."
+      },
+      {
+        "no": "03",
+        "title": "Radical transparency",
+        "body": "Clear pricing, plain language, no retainer traps. You own what I build for you. No surprises in the back room."
+      },
+      {
+        "no": "04",
+        "title": "Respect the attention",
+        "body": "The best software gets out of your way. No dark patterns, no infinite feed, no noise. Tools should serve you, not farm you."
+      }
+    ]
+  },
+  "connect": {
+    "kicker": "Connect",
+    "heading": "Let's build something that works.",
+    "lede": "Always up for a conversation about technology, operations, or building products. Find me here.",
+    "socials": [
+      { "label": "LinkedIn", "icon": "linkedin", "href": "#" },
+      { "label": "X", "icon": "x", "href": "#" },
+      { "label": "Instagram", "icon": "instagram", "href": "#" },
+      { "label": "Facebook", "icon": "facebook", "href": "#" }
+    ],
+    "products": [
+      { "label": "Redefined Creative", "href": "https://redefinedcreative.com" },
+      { "label": "Orva", "href": "https://getorva.app" },
+      { "label": "PlainMind", "href": "https://plainmind.app" }
+    ]
+  },
+  "footer": {
+    "tagline": "The magic out front. The systems in the back.",
+    "signature": "Built by Keegan Lanier"
+  }
+}

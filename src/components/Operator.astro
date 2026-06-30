@@ -1,0 +1,40 @@
+---
+import content from "../data/content.json";
+const { operator } = content;
+---
+
+<section id="operator" class="relative border-t border-[var(--color-line)] py-24 md:py-36">
+  <div class="mx-auto grid max-w-7xl gap-14 px-5 md:px-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+    <!-- Sticky intro -->
+    <div class="lg:sticky lg:top-32 lg:self-start">
+      <p class="kicker mb-5" data-reveal>{operator.kicker}</p>
+      <h2 class="display-xl text-[clamp(2rem,4.5vw,3.5rem)]" data-reveal>{operator.heading}</h2>
+      <p class="mt-6 max-w-md text-lg text-[var(--color-muted)]" data-reveal>{operator.lede}</p>
+    </div>
+
+    <!-- Track of lenses -->
+    <ol class="relative">
+      <!-- vertical track line -->
+      <span
+        class="absolute left-[7px] top-2 bottom-2 w-px bg-gradient-to-b from-[var(--color-ember)] via-[var(--color-line)] to-transparent"
+        aria-hidden="true"></span>
+      {
+        operator.blocks.map((b) => (
+          <li class="relative pl-10 pb-12 last:pb-0" data-reveal>
+            <span
+              class="absolute left-0 top-1.5 h-3.5 w-3.5 rounded-full border-2 border-[var(--color-ember)] bg-[var(--color-bg)]"
+              aria-hidden="true"
+            />
+            <span class="font-mono text-[0.7rem] uppercase tracking-[0.24em] text-[var(--color-ember-soft)]">
+              {b.tag}
+            </span>
+            <h3 class="mt-3 font-display text-2xl font-medium leading-snug text-[var(--color-text)] md:text-[1.75rem]">
+              {b.title}
+            </h3>
+            <p class="mt-3 max-w-xl text-[var(--color-muted)]">{b.body}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

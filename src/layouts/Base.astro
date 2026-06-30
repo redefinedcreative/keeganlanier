@@ -1,0 +1,44 @@
+---
+import "../styles/global.css";
+import content from "../data/content.json";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { meta } = content;
+const { title = meta.title, description = meta.description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={meta.url} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#100D0B" />
+
+    <!-- Mark JS as present before paint so reveal elements only hide when we can animate them -->
+    <script is:inline>
+      document.documentElement.classList.add("js");
+    </script>
+  </head>
+  <body class="grain">
+    <slot />
+    <script>
+      import "../scripts/motion.ts";
+    </script>
+  </body>
+</html>

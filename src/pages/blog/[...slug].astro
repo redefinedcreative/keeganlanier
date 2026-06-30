@@ -1,0 +1,79 @@
+---
+import Base from "../../layouts/Base.astro";
+import Icon from "../../components/Icon.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog", ({ data }) =>
+    import.meta.env.PROD ? !data.draft : true
+  );
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+---
+
+<Base title={`${post.data.title} — Keegan Lanier`} description={post.data.description}>
+  <main class="mx-auto max-w-2xl px-5 pt-28 pb-24 md:px-8">
+    <a
+      href="/blog"
+      class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.18em] text-[var(--color-muted)] transition-colors hover:text-[var(--color-ember)]"
+    >
+      <Icon name="arrow" class="h-3.5 w-3.5 -scale-x-100" /> All writing
+    </a>
+
+    <article class="mt-8">
+      <time class="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-[var(--color-faint)]">
+        {fmt(post.data.pubDate)}
+      </time>
+      <h1 class="display-xl mt-3 text-[clamp(2rem,5.5vw,3.25rem)]">{post.data.title}</h1>
+      <div class="prose-warm mt-10">
+        <Content />
+      </div>
+    </article>
+  </main>
+</Base>
+
+<style is:global>
+  .prose-warm {
+    font-size: 1.075rem;
+    line-height: 1.75;
+    color: var(--color-muted);
+  }
+  .prose-warm > * + * { margin-top: 1.25em; }
+  .prose-warm h2 {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    color: var(--color-text);
+    margin-top: 2em;
+  }
+  .prose-warm h3 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: var(--color-text);
+    margin-top: 1.6em;
+  }
+  .prose-warm a {
+    color: var(--color-ember);
+    text-underline-offset: 3px;
+    text-decoration: underline;
+  }
+  .prose-warm code {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    background: var(--color-surface-2);
+    padding: 0.15em 0.4em;
+    border-radius: 3px;
+    color: var(--color-text);
+  }
+  .prose-warm strong { color: var(--color-text); }
+  .prose-warm blockquote {
+    border-left: 2px solid var(--color-ember);
+    padding-left: 1.2em;
+    font-style: italic;
+  }
+</style>

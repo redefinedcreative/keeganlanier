@@ -1,0 +1,110 @@
+---
+import content from "../data/content.json";
+const { nav } = content;
+---
+
+<header
+  id="nav"
+  class="fixed inset-x-0 top-0 z-50 transition-colors duration-300 border-b border-transparent"
+>
+  <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8 md:py-5">
+    <!-- Monogram -->
+    <a href="#top" class="group flex items-center gap-3" aria-label="Keegan Lanier — top of page">
+      <span
+        class="grid h-9 w-9 place-items-center border border-[var(--color-ember)] font-display text-sm font-semibold text-[var(--color-ember)] transition-colors duration-300 group-hover:bg-[var(--color-ember)] group-hover:text-[#160c04]"
+        style="clip-path: polygon(0 0, 100% 0, 100% 70%, 85% 100%, 0 100%);"
+        >KL</span
+      >
+      <span class="font-mono text-xs tracking-[0.2em] text-[var(--color-muted)] uppercase">Keegan&nbsp;Lanier</span>
+    </a>
+
+    <!-- Desktop links -->
+    <div class="hidden items-center gap-8 md:flex">
+      {
+        nav.links.map((l) => (
+          <a
+            href={l.href}
+            class="whitespace-nowrap font-mono text-xs uppercase tracking-[0.18em] text-[var(--color-muted)] transition-colors duration-200 hover:text-[var(--color-text)]"
+          >
+            {l.label}
+          </a>
+        ))
+      }
+      <a
+        href="#connect"
+        class="border border-[var(--color-line)] px-4 py-2 font-mono text-xs uppercase tracking-[0.18em] text-[var(--color-text)] transition-colors duration-200 hover:border-[var(--color-ember)] hover:text-[var(--color-ember)]"
+        >Connect</a
+      >
+    </div>
+
+    <!-- Mobile toggle -->
+    <button
+      id="menu-toggle"
+      class="flex h-10 w-10 items-center justify-center md:hidden"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <span class="relative block h-3 w-6">
+        <span class="absolute left-0 top-0 h-0.5 w-full bg-[var(--color-text)]"></span>
+        <span class="absolute bottom-0 left-0 h-0.5 w-full bg-[var(--color-text)]"></span>
+      </span>
+    </button>
+  </nav>
+
+  <!-- Mobile overlay -->
+  <div
+    id="mobile-menu"
+    class="invisible fixed inset-0 z-40 flex flex-col bg-[var(--color-bg)]/97 opacity-0 backdrop-blur-md transition-opacity duration-300 md:hidden"
+  >
+    <button
+      id="menu-close"
+      class="absolute right-5 top-5 flex h-10 w-10 items-center justify-center text-2xl text-[var(--color-text)]"
+      aria-label="Close menu">&times;</button
+    >
+    <div class="flex flex-1 flex-col justify-center gap-2 px-8">
+      {
+        nav.links.map((l, i) => (
+          <a
+            href={l.href}
+            class="mobile-link font-display text-4xl font-semibold text-[var(--color-text)] transition-colors hover:text-[var(--color-ember)]"
+            data-i={i + 1}
+          >
+            <span class="mr-3 font-mono text-sm text-[var(--color-faint)]">0{i + 1}</span>
+            {l.label}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const close = document.getElementById("menu-close");
+  const menu = document.getElementById("mobile-menu");
+
+  function setMenu(open: boolean) {
+    if (!menu || !toggle) return;
+    menu.classList.toggle("invisible", !open);
+    menu.classList.toggle("opacity-0", !open);
+    toggle.setAttribute("aria-expanded", String(open));
+    document.body.style.overflow = open ? "hidden" : "";
+  }
+
+  toggle?.addEventListener("click", () => setMenu(true));
+  close?.addEventListener("click", () => setMenu(false));
+  menu?.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => setMenu(false)));
+
+  // Backdrop on the nav once we leave the hero
+  const nav = document.getElementById("nav");
+  const onScroll = () => {
+    if (!nav) return;
+    const scrolled = window.scrollY > 40;
+    nav.classList.toggle("bg-[var(--color-bg)]/85", scrolled);
+    nav.classList.toggle("backdrop-blur-md", scrolled);
+    nav.classList.toggle("border-[var(--color-line)]", scrolled);
+  };
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+</script>
