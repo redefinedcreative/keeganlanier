@@ -43,9 +43,12 @@ if (prefersReduced) {
   });
 
   // The coaster car rides the lift hill → drop, on a gentle loop.
+  // Desktop only: the infinite rAF loop is needless main-thread work on mobile,
+  // and the motif is decorative, so we skip it on small screens.
+  const allowHeavyMotion = window.matchMedia("(min-width: 768px)").matches;
   const car = document.querySelector<SVGCircleElement>("#coaster-car");
   const path = document.querySelector<SVGPathElement>("#coaster-path");
-  if (car && path) {
+  if (allowHeavyMotion && car && path) {
     gsap.to(car, {
       duration: 4.5,
       repeat: -1,
