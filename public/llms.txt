@@ -1,0 +1,21 @@
+# Keegan Lanier
+
+> Technology leader, operator, and product builder. I pair operational rigor with engineering to build software and web systems designed for outcomes — and I'm the maker behind Redefined Creative, Orva, and PlainMind.
+
+Keegan Lanier's background spans hospitality operations (kitchens, P&Ls, and a team Menu Masters Award at Walk-On's Sports Bistreaux) and enterprise technology leadership. That combination — understanding both the spreadsheet and the customer experience — shapes everything he builds: calm, private, results-focused software and websites. His guiding principles are systems over guesswork, building for outcomes, radical transparency, and respecting the user's attention.
+
+## Builds
+
+- [Redefined Creative](https://redefinedcreative.com): Web design and local SEO studio that turns home-service businesses into the local authority in their market.
+- [Orva](https://getorva.app): A calm, local-first iOS calendar and task app that protects your time instead of maximizing it — it caps work hours, guards personal time, and drafts tomorrow's plan each night.
+- [PlainMind](https://plainmind.app): A calm, private, local-first iOS app to save links, music, places, PDFs, and ideas in one tap and find them again with on-device search. No feed, no tracking.
+
+## Connect
+
+- [LinkedIn](https://linkedin.com/in/keeganlanier): Professional background and updates.
+- [X](https://x.com/keeganlanier): Posts on technology, operations, and building products.
+- [Facebook](https://facebook.com/keeganlanier84): Personal profile.
+
+## Site
+
+- [Home](https://keeganlanier.com/): Keegan Lanier's personal site — background, philosophy, and the things he builds.
