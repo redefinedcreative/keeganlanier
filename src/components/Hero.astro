@@ -89,9 +89,13 @@ const { hero, builds } = content;
         }
       </div>
     </div>
-    <a href="#operator" class="group flex shrink-0 items-center gap-2 font-mono text-[0.65rem] uppercase tracking-[0.24em] text-[var(--color-faint)]">
-      <span class="hidden sm:inline">{hero.scrollCue}</span>
-      <span class="inline-block h-7 w-4 rounded-full border border-[var(--color-faint)] p-1">
+    <a
+      href="#operator"
+      aria-label={`${hero.scrollCue} — scroll to content`}
+      class="group flex shrink-0 items-center gap-2 font-mono text-[0.65rem] uppercase tracking-[0.24em] text-[var(--color-faint)]"
+    >
+      <span class="hidden sm:inline" aria-hidden="true">{hero.scrollCue}</span>
+      <span class="inline-block h-7 w-4 rounded-full border border-[var(--color-faint)] p-1" aria-hidden="true">
         <span class="mx-auto block h-1.5 w-0.5 animate-bounce rounded-full bg-[var(--color-ember)]"></span>
       </span>
     </a>

@@ -13,7 +13,7 @@
   --color-line:        #34291F; /* warm hairline */
   --color-text:        #F2E9DC; /* warm cream */
   --color-muted:       #A89A88; /* warm taupe */
-  --color-faint:       #6F6253; /* dim taupe */
+  --color-faint:       #8A7D6A; /* dim taupe — AA (>=4.5:1) on --color-bg for small text */
   --color-ember:       #F2660C; /* molten orange — dominant accent */
   --color-ember-soft:  #FF8A3D; /* heated highlight */
   --color-neon:        #2DE2C0; /* electric teal — used sparingly */
@@ -61,6 +61,40 @@ body {
   outline: 2px solid var(--color-ember);
   outline-offset: 3px;
   border-radius: 2px;
+}
+
+/* Screen-reader-only content that stays accessible to AT */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Skip link — visible only when focused */
+.skip-link {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -120%);
+  z-index: 200;
+  background: var(--color-ember);
+  color: #160c04;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.75rem 1.25rem;
+  transition: transform 0.2s var(--ease-coaster);
+}
+.skip-link:focus {
+  transform: translate(-50%, 0);
+  outline-offset: 2px;
 }
 
 /* ── Atmosphere: film grain over the whole stage ───────────────────────── */

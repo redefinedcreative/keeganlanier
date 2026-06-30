@@ -13,10 +13,10 @@ const { philosophy } = content;
       <p class="mt-6 text-lg text-[var(--color-muted)]" data-reveal>{philosophy.lede}</p>
     </div>
 
-    <div class="mt-14 grid gap-px overflow-hidden border border-[var(--color-line)] bg-[var(--color-line)] sm:grid-cols-2">
+    <ul class="mt-14 grid gap-px overflow-hidden border border-[var(--color-line)] bg-[var(--color-line)] sm:grid-cols-2">
       {
         philosophy.principles.map((p) => (
-          <div
+          <li
             class="group relative bg-[var(--color-bg)] p-8 transition-colors duration-300 hover:bg-[var(--color-surface)] md:p-10"
             data-reveal
           >
@@ -26,9 +26,9 @@ const { philosophy } = content;
             </div>
             <h3 class="mt-5 font-display text-2xl font-medium text-[var(--color-text)]">{p.title}</h3>
             <p class="mt-3 text-[var(--color-muted)]">{p.body}</p>
-          </div>
+          </li>
         ))
       }
-    </div>
+    </ul>
   </div>
 </section>

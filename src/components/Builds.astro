@@ -16,9 +16,10 @@ const accentVar = (a: string) => (a === "neon" ? "var(--color-neon)" : "var(--co
       <p class="mt-6 text-lg text-[var(--color-muted)]" data-reveal>{builds.lede}</p>
     </div>
 
-    <div class="mt-14 flex flex-col gap-6">
+    <ul class="mt-14 flex flex-col gap-6">
       {
         builds.items.map((b, i) => (
+        <li>
           <a
             href={b.href}
             target="_blank"
@@ -73,9 +74,10 @@ const accentVar = (a: string) => (a === "neon" ? "var(--color-neon)" : "var(--co
               <span class="font-mono text-[0.7rem] text-[var(--color-faint)]">{b.linkLabel}</span>
             </div>
           </a>
+        </li>
         ))
       }
-    </div>
+    </ul>
 
     <!-- Narrative thread -->
     <div

@@ -7,8 +7,45 @@ interface Props {
   description?: string;
 }
 
-const { meta } = content;
+const { meta, connect } = content;
 const { title = meta.title, description = meta.description } = Astro.props;
+
+// Canonical URL for this page, resolved against the configured `site`.
+const canonical = new URL(Astro.url.pathname, Astro.site ?? meta.url).href;
+
+// Real, public profile links → schema.org sameAs (drop any unfilled "#").
+const sameAs = connect.socials.map((s) => s.href).filter((h) => h && h !== "#");
+
+// ProfilePage + Person structured data — strong signal for SEO and answer engines (AEO).
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  mainEntity: {
+    "@type": "Person",
+    name: meta.name,
+    url: meta.url,
+    jobTitle: "Technology Leader & Product Builder",
+    description: meta.description,
+    sameAs,
+    knowsAbout: [
+      "Information Technology",
+      "Operations Management",
+      "Web Design",
+      "Local SEO",
+      "Workflow Automation",
+      "iOS App Development",
+    ],
+    worksFor: {
+      "@type": "Organization",
+      name: "Redefined Creative",
+      url: "https://redefinedcreative.com",
+    },
+    owns: [
+      { "@type": "SoftwareApplication", name: "Orva", applicationCategory: "ProductivityApplication", operatingSystem: "iOS", url: "https://getorva.app" },
+      { "@type": "SoftwareApplication", name: "PlainMind", applicationCategory: "ProductivityApplication", operatingSystem: "iOS", url: "https://plainmind.app" },
+    ],
+  },
+};
 ---
 
 <!doctype html>
@@ -21,14 +58,24 @@ const { title = meta.title, description = meta.description } = Astro.props;
 
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={meta.name} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={meta.url} />
+    <meta property="og:url" content={canonical} />
+
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
     <meta name="theme-color" content="#100D0B" />
+
+    <!-- Structured data (SEO / AEO) -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline />
 
     <!-- Mark JS as present before paint so reveal elements only hide when we can animate them -->
     <script is:inline>
@@ -36,6 +83,7 @@ const { title = meta.title, description = meta.description } = Astro.props;
     </script>
   </head>
   <body class="grain">
+    <a href="#main" class="skip-link">Skip to content</a>
     <slot />
     <script>
       import "../scripts/motion.ts";

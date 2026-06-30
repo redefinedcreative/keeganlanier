@@ -1,11 +1,10 @@
 ---
 import content from "../data/content.json";
 import Icon from "./Icon.astro";
-const { connect, footer, meta } = content;
-const year = 2026;
+const { connect } = content;
 ---
 
-<section id="connect" class="relative overflow-hidden border-t border-[var(--color-line)] pt-24 md:pt-36">
+<section id="connect" class="relative overflow-hidden border-t border-[var(--color-line)] pt-24 pb-24 md:pt-36 md:pb-32">
   <div class="ember-glow absolute inset-x-0 bottom-0 h-[70vh]"></div>
 
   <div class="relative mx-auto max-w-7xl px-5 md:px-8">
@@ -14,60 +13,46 @@ const year = 2026;
     <p class="mt-6 max-w-xl text-lg text-[var(--color-muted)]" data-reveal>{connect.lede}</p>
 
     <!-- Socials -->
-    <div class="mt-10 flex flex-wrap gap-3" data-reveal>
+    <ul class="mt-10 flex flex-wrap gap-3" data-reveal>
       {
         connect.socials.map((s) => (
-          <a
-            href={s.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={s.label}
-            class="group flex h-14 w-14 items-center justify-center border border-[var(--color-line)] text-[var(--color-muted)] transition-colors duration-200 hover:border-[var(--color-ember)] hover:text-[var(--color-ember)]"
-          >
-            <Icon name={s.icon as any} class="h-5 w-5" />
-          </a>
+          <li>
+            <a
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={s.label}
+              class="group flex h-14 w-14 items-center justify-center border border-[var(--color-line)] text-[var(--color-muted)] transition-colors duration-200 hover:border-[var(--color-ember)] hover:text-[var(--color-ember)]"
+            >
+              <Icon name={s.icon as any} class="h-5 w-5" />
+            </a>
+          </li>
         ))
       }
-    </div>
+    </ul>
 
     <!-- Products -->
-    <div class="mt-14 border-t border-[var(--color-line)] pt-10" data-reveal>
+    <nav class="mt-14 border-t border-[var(--color-line)] pt-10" aria-label="Things I build" data-reveal>
       <p class="font-mono text-[0.7rem] uppercase tracking-[0.24em] text-[var(--color-faint)]">
         Or explore what I build
       </p>
-      <div class="mt-5 flex flex-col gap-px sm:flex-row sm:gap-8">
+      <ul class="mt-5 flex flex-col gap-px sm:flex-row sm:gap-8">
         {
           connect.products.map((p) => (
-            <a
-              href={p.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="group inline-flex items-center gap-2 py-1 font-display text-xl text-[var(--color-text)] transition-colors duration-200 hover:text-[var(--color-ember)]"
-            >
-              {p.label}
-              <Icon name="arrow" class="h-4 w-4 opacity-0 transition-all duration-200 group-hover:translate-x-0.5 group-hover:opacity-100" />
-            </a>
+            <li>
+              <a
+                href={p.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group inline-flex items-center gap-2 py-1 font-display text-xl text-[var(--color-text)] transition-colors duration-200 hover:text-[var(--color-ember)]"
+              >
+                {p.label}
+                <Icon name="arrow" class="h-4 w-4 opacity-0 transition-all duration-200 group-hover:translate-x-0.5 group-hover:opacity-100" />
+              </a>
+            </li>
           ))
         }
-      </div>
-    </div>
+      </ul>
+    </nav>
   </div>
-
-  <!-- Footer -->
-  <footer class="relative mt-24 border-t border-[var(--color-line)]">
-    <div class="mx-auto flex max-w-7xl flex-col gap-6 px-5 py-10 md:flex-row md:items-center md:justify-between md:px-8">
-      <p class="font-display text-lg text-[var(--color-muted)]">{footer.tagline}</p>
-      <div class="flex items-center gap-4 font-mono text-[0.7rem] uppercase tracking-[0.18em] text-[var(--color-faint)]">
-        <span>{footer.signature}</span>
-        <span class="text-[var(--color-ember)]">/</span>
-        <span>&copy; {year}</span>
-      </div>
-    </div>
-    <!-- Oversized wordmark watermark -->
-    <div class="pointer-events-none select-none overflow-hidden" aria-hidden="true">
-      <p class="-mb-[0.18em] translate-y-[0.12em] text-center font-display text-[22vw] font-semibold leading-none text-[var(--color-surface-2)]">
-        LANIER
-      </p>
-    </div>
-  </footer>
 </section>

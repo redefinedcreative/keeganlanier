@@ -7,7 +7,7 @@ const { nav } = content;
   id="nav"
   class="fixed inset-x-0 top-0 z-50 transition-colors duration-300 border-b border-transparent"
 >
-  <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8 md:py-5">
+  <nav aria-label="Primary" class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8 md:py-5">
     <!-- Monogram -->
     <a href="#top" class="group flex items-center gap-3" aria-label="Keegan Lanier — top of page">
       <span
@@ -20,16 +20,20 @@ const { nav } = content;
 
     <!-- Desktop links -->
     <div class="hidden items-center gap-8 md:flex">
-      {
-        nav.links.map((l) => (
-          <a
-            href={l.href}
-            class="whitespace-nowrap font-mono text-xs uppercase tracking-[0.18em] text-[var(--color-muted)] transition-colors duration-200 hover:text-[var(--color-text)]"
-          >
-            {l.label}
-          </a>
-        ))
-      }
+      <ul class="flex items-center gap-8">
+        {
+          nav.links.map((l) => (
+            <li>
+              <a
+                href={l.href}
+                class="whitespace-nowrap font-mono text-xs uppercase tracking-[0.18em] text-[var(--color-muted)] transition-colors duration-200 hover:text-[var(--color-text)]"
+              >
+                {l.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
       <a
         href="#connect"
         class="border border-[var(--color-line)] px-4 py-2 font-mono text-xs uppercase tracking-[0.18em] text-[var(--color-text)] transition-colors duration-200 hover:border-[var(--color-ember)] hover:text-[var(--color-ember)]"
@@ -62,20 +66,24 @@ const { nav } = content;
       class="absolute right-5 top-5 flex h-10 w-10 items-center justify-center text-2xl text-[var(--color-text)]"
       aria-label="Close menu">&times;</button
     >
-    <div class="flex flex-1 flex-col justify-center gap-2 px-8">
-      {
-        nav.links.map((l, i) => (
-          <a
-            href={l.href}
-            class="mobile-link font-display text-4xl font-semibold text-[var(--color-text)] transition-colors hover:text-[var(--color-ember)]"
-            data-i={i + 1}
-          >
-            <span class="mr-3 font-mono text-sm text-[var(--color-faint)]">0{i + 1}</span>
-            {l.label}
-          </a>
-        ))
-      }
-    </div>
+    <nav aria-label="Mobile" class="flex flex-1 flex-col justify-center px-8">
+      <ul class="flex flex-col gap-2">
+        {
+          nav.links.map((l, i) => (
+            <li>
+              <a
+                href={l.href}
+                class="mobile-link font-display text-4xl font-semibold text-[var(--color-text)] transition-colors hover:text-[var(--color-ember)]"
+                data-i={i + 1}
+              >
+                <span class="mr-3 font-mono text-sm text-[var(--color-faint)]" aria-hidden="true">0{i + 1}</span>
+                {l.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
   </div>
 </header>
 
