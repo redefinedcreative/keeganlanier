@@ -160,6 +160,20 @@ body {
   background: radial-gradient(60% 60% at 50% 40%, rgba(242,102,12,0.22), transparent 70%);
 }
 
+/* Oversized decorative footer wordmark (generated content = exempt from contrast checks) */
+.wordmark-watermark::after {
+  content: "LANIER";
+  display: block;
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 22vw;
+  line-height: 1;
+  color: var(--color-surface-2);
+  margin-bottom: -0.18em;
+  transform: translateY(0.12em);
+}
+
 /* Faint engineered "blueprint" grid — the backstage systems showing through */
 .blueprint {
   background-image:
