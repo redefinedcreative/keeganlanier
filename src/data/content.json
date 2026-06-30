@@ -117,10 +117,9 @@
     "heading": "Let's build something that works.",
     "lede": "Always up for a conversation about technology, operations, or building products. Find me here.",
     "socials": [
-      { "label": "LinkedIn", "icon": "linkedin", "href": "#" },
-      { "label": "X", "icon": "x", "href": "#" },
-      { "label": "Instagram", "icon": "instagram", "href": "#" },
-      { "label": "Facebook", "icon": "facebook", "href": "#" }
+      { "label": "LinkedIn", "icon": "linkedin", "href": "https://linkedin.com/in/keeganlanier" },
+      { "label": "X", "icon": "x", "href": "https://x.com/keeganlanier" },
+      { "label": "Facebook", "icon": "facebook", "href": "https://facebook.com/keeganlanier84" }
     ],
     "products": [
       { "label": "Redefined Creative", "href": "https://redefinedcreative.com" },
