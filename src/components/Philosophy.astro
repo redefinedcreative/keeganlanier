@@ -19,10 +19,10 @@ const { philosophy } = content;
       {
         philosophy.principles.map((p) => (
           <li
-            class="group grid gap-x-8 gap-y-2 border-b border-[var(--color-line)] py-8 transition-colors duration-300 hover:bg-[var(--color-surface)]/60 md:grid-cols-[80px_1fr_1.1fr] md:items-center md:py-9"
+            class="grid gap-x-8 gap-y-2 border-b border-[var(--color-line)] py-8 md:grid-cols-[80px_1fr_1.1fr] md:items-center md:py-9"
             data-reveal
           >
-            <span class="font-mono text-2xl text-[var(--color-faint)] transition-colors duration-300 group-hover:text-[var(--color-ember)] md:text-3xl">
+            <span class="font-mono text-2xl text-[var(--color-faint)] md:text-3xl">
               {p.no}
             </span>
             <h3 class="font-display text-2xl font-medium text-[var(--color-text)] md:text-[1.75rem]">{p.title}</h3>
