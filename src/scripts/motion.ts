@@ -53,12 +53,14 @@ if (wantsHeavyMotion) {
         .from("#hero-dim line", { drawSVG: "0%", duration: 0.4, stagger: 0.1 }, "-=0.3")
         .from(["#hero-dim text", "#hero-datum"], { opacity: 0, duration: 0.5 }, "-=0.2");
 
-      // Slow lift-hill crawl, fast drop, long idle between runs.
+      // Dispatch → steady chain lift → hang at the crest → drop. Like the real thing.
       const ride = gsap.timeline({ repeat: -1, repeatDelay: 3.2, delay: 1.2 });
       const mp = { path: heroPath, align: heroPath, alignOrigin: [0.5, 0.5] as [number, number] };
       ride
-        .to(heroCar, { motionPath: { ...mp, start: 0, end: 0.58 }, duration: 3.6, ease: "power1.inOut" })
-        .to(heroCar, { motionPath: { ...mp, start: 0.58, end: 1 }, duration: 1.2, ease: "power2.in" })
+        .to(heroCar, { motionPath: { ...mp, start: 0, end: 0.37 }, duration: 1.6, ease: "power1.inOut" })
+        .to(heroCar, { motionPath: { ...mp, start: 0.37, end: 0.66 }, duration: 2.8, ease: "none" })
+        .to(heroCar, { motionPath: { ...mp, start: 0.66, end: 0.72 }, duration: 1.4, ease: "power1.inOut" })
+        .to(heroCar, { motionPath: { ...mp, start: 0.72, end: 1 }, duration: 1.1, ease: "power2.in" })
         .to(heroCar, { opacity: 0, duration: 0.3 }, "-=0.2")
         .set(heroCar, { opacity: 1, motionPath: { ...mp, start: 0, end: 0.001 } });
 
@@ -80,15 +82,15 @@ if (wantsHeavyMotion) {
       });
     });
 
-    // ── Work: inspection stamps slam onto the spec sheets ──────────────────
+    // ── Work: inspection stamps press onto the spec sheets ─────────────────
     gsap.utils.toArray<HTMLElement>(".spec-sheet .stamp").forEach((stamp) => {
       gsap.from(stamp, {
         opacity: 0,
-        scale: 1.7,
-        rotation: 4,
-        duration: 0.45,
-        ease: "back.out(2.5)",
-        scrollTrigger: { trigger: stamp, start: "top 75%", once: true },
+        scale: 1.3,
+        rotation: 1,
+        duration: 0.65,
+        ease: "back.out(1.4)",
+        scrollTrigger: { trigger: stamp, start: "top 70%", once: true },
         onComplete: () => gsap.set(stamp, { clearProps: "transform" }), // hand rotation back to CSS
       });
     });
@@ -132,11 +134,11 @@ if (wantsHeavyMotion) {
       }
     }
 
-    // ── Setlist: one spotlight sweep across the encore — the live-show beat ─
-    const sweep = document.querySelector<HTMLElement>(".encore-sweep");
+    // ── Notes: one highlight sweep across the after-hours note ─────────────
+    const sweep = document.querySelector<HTMLElement>(".spotlight-sweep");
     if (sweep) {
       gsap
-        .timeline({ scrollTrigger: { trigger: "#encore", start: "top 78%", once: true } })
+        .timeline({ scrollTrigger: { trigger: "#afterhours", start: "top 78%", once: true } })
         .set(sweep, { opacity: 1 })
         .fromTo(sweep, { xPercent: -40 }, { xPercent: 420, duration: 1.4, ease: "power2.inOut" })
         .to(sweep, { opacity: 0, duration: 0.3 }, "-=0.3");
@@ -153,13 +155,14 @@ if (wantsHeavyMotion) {
         scrollTrigger: { trigger: "#footer-brake", start: "top 88%", once: true },
       });
     }
-    if (footerCar) {
-      gsap.from(footerCar, {
-        x: -420,
-        duration: 1.6,
-        ease: "power4.out",
-        scrollTrigger: { trigger: "#footer-brake", start: "top 85%", once: true },
-      });
+    if (footerCar && brakePath) {
+      // Ride the final hill, then decelerate down the brake run to the block.
+      const fmp = { path: brakePath, align: brakePath, alignOrigin: [0.5, 0.5] as [number, number] };
+      gsap
+        .timeline({ scrollTrigger: { trigger: "#footer-brake", start: "top 85%", once: true } })
+        .to(footerCar, { motionPath: { ...fmp, start: 0, end: 0.42 }, duration: 1.0, ease: "power1.out" })
+        .to(footerCar, { motionPath: { ...fmp, start: 0.42, end: 0.62 }, duration: 0.45, ease: "power1.in" })
+        .to(footerCar, { motionPath: { ...fmp, start: 0.62, end: 0.965 }, duration: 1.4, ease: "power3.out" });
     }
     const endline = document.querySelector<HTMLElement>("#footer-endline");
     if (endline) {

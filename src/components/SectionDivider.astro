@@ -1,13 +1,14 @@
 ---
-// A shallow track-profile hairline between sections. Used at exactly two
-// boundaries — everywhere else sections keep a plain border-t. Restraint.
+// A track-profile hairline between sections — taller hills and one
+// loop-the-loop. Used at exactly two boundaries; everywhere else sections
+// keep a plain border-t. Aspect ratio is preserved so the loop stays round.
 ---
 
 <div class="section-divider" aria-hidden="true">
-  <svg viewBox="0 0 1200 60" preserveAspectRatio="none" fill="none" class="block h-[60px] w-full">
+  <svg viewBox="0 0 1200 90" fill="none" class="block h-auto w-full">
     <path
       class="divider-path"
-      d="M0 44 C150 44 200 14 320 14 C440 14 480 50 620 50 C760 50 800 22 940 22 C1060 22 1100 40 1200 40"
+      d="M0 74 C110 74 150 16 260 16 C370 16 405 74 515 74 C590 74 630 64 670 64 A 20 20 0 0 0 670 24 A 20 20 0 0 0 670 64 C730 64 770 20 865 20 C955 20 995 74 1090 74 C1140 74 1170 58 1200 58"
       stroke="var(--color-ink)"
       stroke-width="1"
       opacity="0.5"

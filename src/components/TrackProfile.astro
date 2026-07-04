@@ -9,8 +9,8 @@ const { labels } = Astro.props;
 
 // x/y points ON the track path where each station marker sits.
 const stations = [
-  { x: 60, y: 210 },
-  { x: 505, y: 198 },
+  { x: 40, y: 210 },
+  { x: 500, y: 198 },
   { x: 775, y: 98 },
   { x: 1140, y: 152 },
 ];
@@ -29,19 +29,18 @@ const stations = [
   <!-- supports -->
   <g stroke="var(--color-ink)" stroke-width="1" opacity="0.5">
     <line x1="45" y1="210" x2="45" y2="250"></line>
-    <line x1="90" y1="210" x2="90" y2="250"></line>
-    <line x1="210" y1="137" x2="210" y2="250"></line>
+    <line x1="210" y1="130" x2="210" y2="250"></line>
     <line x1="330" y1="64" x2="330" y2="250"></line>
-    <line x1="505" y1="198" x2="505" y2="250"></line>
-    <line x1="665" y1="106" x2="665" y2="250"></line>
+    <line x1="500" y1="198" x2="500" y2="250"></line>
+    <line x1="590" y1="168" x2="590" y2="250"></line>
     <line x1="930" y1="180" x2="930" y2="250"></line>
     <line x1="1105" y1="152" x2="1105" y2="250"></line>
   </g>
 
-  <!-- track: station → lift → drop → hills → run-out -->
+  <!-- track: station → curved lift approach → lift → drop → loop → hill → run-out -->
   <path
     id="career-track"
-    d="M0 210 L90 210 L330 64 Q355 50 378 66 C430 108 420 196 505 198 C575 200 590 130 665 106 Q720 90 775 98 C850 108 860 176 930 180 C1010 184 1040 152 1105 152 L1200 152"
+    d="M0 210 L60 210 Q92 210 112 184 L330 64 Q355 50 378 66 C430 108 420 196 500 198 C530 198 560 184 590 168 A 30 30 0 0 0 590 108 A 30 30 0 0 0 590 168 C625 150 640 122 675 106 Q720 92 775 98 C850 108 860 176 930 180 C1010 184 1040 152 1105 152 L1200 152"
     stroke="var(--color-ink)"
     stroke-width="1.5"
     pathLength="1"

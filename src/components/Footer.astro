@@ -6,28 +6,35 @@ const year = 2026;
 ---
 
 <footer class="relative border-t border-[var(--color-line)]">
-  <!-- End of ride: brake run flattening into the stop block -->
+  <!-- End of ride: one last hill, then the brake run and the stop block.
+       Aspect ratio preserved so the car stays a true circle. -->
   <div class="mx-auto max-w-7xl px-5 pt-12 md:px-8" aria-hidden="true">
-    <svg id="footer-brake" viewBox="0 0 1200 80" preserveAspectRatio="none" fill="none" class="block h-14 w-full">
+    <svg id="footer-brake" viewBox="0 0 1200 140" fill="none" class="block h-auto w-full">
       <path
         id="footer-brake-path"
-        d="M0 26 C220 26 320 56 540 56 L1096 56"
+        d="M0 96 C90 96 130 110 210 110 C300 110 330 30 430 30 C520 30 560 118 680 118 L1096 118"
         stroke="var(--color-ink)"
         stroke-width="1.5"
         vector-effect="non-scaling-stroke"
         pathLength="1"></path>
+      <!-- supports under the final hill -->
+      <g stroke="var(--color-ink)" stroke-width="1" opacity="0.5">
+        <line x1="360" y1="44" x2="360" y2="132"></line>
+        <line x1="430" y1="30" x2="430" y2="132"></line>
+        <line x1="500" y1="52" x2="500" y2="132"></line>
+      </g>
       <!-- brake fins -->
       <g stroke="var(--color-ink)" stroke-width="1" opacity="0.55">
-        <line x1="760" y1="56" x2="760" y2="66"></line>
-        <line x1="820" y1="56" x2="820" y2="66"></line>
-        <line x1="880" y1="56" x2="880" y2="66"></line>
-        <line x1="940" y1="56" x2="940" y2="66"></line>
-        <line x1="1000" y1="56" x2="1000" y2="66"></line>
+        <line x1="780" y1="118" x2="780" y2="130"></line>
+        <line x1="840" y1="118" x2="840" y2="130"></line>
+        <line x1="900" y1="118" x2="900" y2="130"></line>
+        <line x1="960" y1="118" x2="960" y2="130"></line>
+        <line x1="1020" y1="118" x2="1020" y2="130"></line>
       </g>
       <!-- stop block -->
-      <rect x="1096" y="42" width="10" height="26" fill="var(--color-ink)" opacity="0.8"></rect>
+      <rect x="1096" y="104" width="10" height="28" fill="var(--color-ink)" opacity="0.8"></rect>
       <!-- the car, home safe -->
-      <circle id="footer-car" cx="1062" cy="56" r="6" fill="var(--color-ember-vivid)"></circle>
+      <circle id="footer-car" cx="1058" cy="118" r="6" fill="var(--color-ember-vivid)"></circle>
     </svg>
     <p id="footer-endline" class="anno mt-4 text-center">{footer.endOfRide}</p>
   </div>

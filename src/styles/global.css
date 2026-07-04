@@ -295,6 +295,12 @@ body {
 }
 .js [data-reveal].is-visible { opacity: 1; transform: none; }
 
+/* Big spec-sheet panels glide in — longer travel, longer ease, no jolt */
+.js .spec-sheet[data-reveal] {
+  transform: translateY(44px);
+  transition: opacity 1.15s var(--ease-coaster), transform 1.15s var(--ease-coaster);
+}
+
 /* ── Hero entrance — CSS-only so above-the-fold paints without waiting on JS.
    Transform-only (no opacity fade) keeps the LCP headline at full opacity → fast LCP. */
 @keyframes heroRise {

@@ -8,9 +8,9 @@
   "nav": {
     "links": [
       { "label": "The Work", "href": "#work" },
-      { "label": "The Story", "href": "#operator" },
+      { "label": "The Operator", "href": "#operator" },
       { "label": "The Ride", "href": "#experience" },
-      { "label": "The Setlist", "href": "#setlist" }
+      { "label": "The Notes", "href": "#notes" }
     ]
   },
   "hero": {
@@ -175,11 +175,11 @@
       }
     ]
   },
-  "setlist": {
-    "kicker": "The Setlist",
-    "heading": "Four songs I never skip.",
-    "lede": "The principles behind everything I build — played in order, no filler.",
-    "annotation": "AUDIO — FOH CONSOLE",
+  "notes": {
+    "kicker": "General Notes",
+    "heading": "Read before building.",
+    "lede": "Four notes that apply to every sheet I ship — no exceptions, no fine print.",
+    "annotation": "TYP. ALL SHEETS",
     "principles": [
       {
         "no": "01",
@@ -202,9 +202,9 @@
         "body": "The best software gets out of your way. No dark patterns, no infinite feed, no noise. Tools should serve you, not farm you."
       }
     ],
-    "encore": {
-      "label": "Encore",
-      "body": "Off the clock: chasing coasters at Universal and Disney, standing front-of-house at live shows, and studying how the parks run the best operations on earth."
+    "afterHours": {
+      "label": "After hours",
+      "body": "Off the clock: chasing coasters at Universal and Disney, front row at live shows, and studying how the parks run the best operations on earth."
     }
   },
   "connect": {

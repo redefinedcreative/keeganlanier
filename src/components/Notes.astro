@@ -1,25 +1,25 @@
 ---
 import content from "../data/content.json";
-const { setlist } = content;
+const { notes } = content;
 ---
 
-<section id="setlist" class="relative py-24 md:py-36">
+<section id="notes" class="relative py-24 md:py-36">
   <div class="mx-auto max-w-7xl px-5 md:px-8">
     <div class="flex items-end justify-between gap-6">
       <div class="max-w-3xl">
-        <p class="kicker mb-5" data-reveal>{setlist.kicker}</p>
-        <h2 class="display-xl text-[clamp(2rem,5vw,4rem)]" data-reveal>{setlist.heading}</h2>
-        <p class="mt-6 text-lg text-[var(--color-muted)]" data-reveal>{setlist.lede}</p>
+        <p class="kicker mb-5" data-reveal>{notes.kicker}</p>
+        <h2 class="display-xl text-[clamp(2rem,5vw,4rem)]" data-reveal>{notes.heading}</h2>
+        <p class="mt-6 text-lg text-[var(--color-muted)]" data-reveal>{notes.lede}</p>
       </div>
-      <span class="anno mb-2 hidden shrink-0 lg:inline" data-reveal aria-hidden="true">{setlist.annotation}</span>
+      <span class="anno mb-2 hidden shrink-0 lg:inline" data-reveal aria-hidden="true">{notes.annotation}</span>
     </div>
 
-    <!-- The set — played in order, no filler -->
+    <!-- The notes — numbered like the general notes on a drawing sheet -->
     <ol class="mt-14 border-t border-[var(--color-line)]">
       {
-        setlist.principles.map((p) => (
+        notes.principles.map((p) => (
           <li
-            class="group grid gap-x-8 gap-y-2 border-b border-[var(--color-line)] py-8 transition-colors duration-300 hover:bg-[var(--color-surface)]/60 md:grid-cols-[80px_1fr_1.1fr] md:items-baseline md:py-9"
+            class="group grid gap-x-8 gap-y-2 border-b border-[var(--color-line)] py-8 transition-colors duration-300 hover:bg-[var(--color-surface)]/60 md:grid-cols-[80px_1fr_1.1fr] md:items-center md:py-9"
             data-reveal
           >
             <span class="font-mono text-2xl text-[var(--color-faint)] transition-colors duration-300 group-hover:text-[var(--color-ember)] md:text-3xl">
@@ -32,26 +32,26 @@ const { setlist } = content;
       }
     </ol>
 
-    <!-- Encore — the one overt personal note on the page -->
+    <!-- After hours — the one overt personal note on the page -->
     <div
-      id="encore"
+      id="afterhours"
       class="relative mt-10 overflow-hidden border border-[var(--color-line)] bg-[var(--color-surface)]/40 p-7 md:p-9"
       data-reveal
     >
-      <span class="encore-sweep pointer-events-none absolute inset-y-0 w-1/3" aria-hidden="true"></span>
+      <span class="spotlight-sweep pointer-events-none absolute inset-y-0 w-1/3" aria-hidden="true"></span>
       <div class="relative flex flex-col gap-3 md:flex-row md:items-baseline md:gap-8">
         <span class="font-mono text-xs font-medium uppercase tracking-[0.28em] text-[var(--color-ember)]">
-          {setlist.encore.label}
+          {notes.afterHours.label}
         </span>
-        <p class="max-w-3xl font-display text-xl text-[var(--color-text)] md:text-2xl">{setlist.encore.body}</p>
+        <p class="max-w-3xl font-display text-xl text-[var(--color-text)] md:text-2xl">{notes.afterHours.body}</p>
       </div>
     </div>
   </div>
 </section>
 
 <style>
-  /* Spotlight sweep across the encore — driven by GSAP on desktop; invisible otherwise */
-  .encore-sweep {
+  /* Highlight sweep across the after-hours note — driven by GSAP on desktop */
+  .spotlight-sweep {
     left: -40%;
     background: linear-gradient(
       100deg,
