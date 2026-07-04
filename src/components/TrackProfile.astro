@@ -1,0 +1,82 @@
+---
+// Career elevation profile — a coaster track drawn as a blueprint elevation.
+// Purely decorative (aria-hidden); the real resume content lives in the
+// Experience cards. Station coordinates are baked to match the path geometry.
+interface Props {
+  labels: string[];
+}
+const { labels } = Astro.props;
+
+// x/y points ON the track path where each station marker sits.
+const stations = [
+  { x: 60, y: 210 },
+  { x: 505, y: 198 },
+  { x: 775, y: 98 },
+  { x: 1140, y: 152 },
+];
+---
+
+<svg
+  id="career-profile"
+  class="hidden w-full md:block"
+  viewBox="0 0 1200 270"
+  fill="none"
+  aria-hidden="true"
+>
+  <!-- datum line -->
+  <line x1="0" y1="250" x2="1200" y2="250" stroke="var(--color-ink)" stroke-width="1" opacity="0.35" stroke-dasharray="2 6"></line>
+
+  <!-- supports -->
+  <g stroke="var(--color-ink)" stroke-width="1" opacity="0.5">
+    <line x1="45" y1="210" x2="45" y2="250"></line>
+    <line x1="90" y1="210" x2="90" y2="250"></line>
+    <line x1="210" y1="137" x2="210" y2="250"></line>
+    <line x1="330" y1="64" x2="330" y2="250"></line>
+    <line x1="505" y1="198" x2="505" y2="250"></line>
+    <line x1="665" y1="106" x2="665" y2="250"></line>
+    <line x1="930" y1="180" x2="930" y2="250"></line>
+    <line x1="1105" y1="152" x2="1105" y2="250"></line>
+  </g>
+
+  <!-- track: station → lift → drop → hills → run-out -->
+  <path
+    id="career-track"
+    d="M0 210 L90 210 L330 64 Q355 50 378 66 C430 108 420 196 505 198 C575 200 590 130 665 106 Q720 90 775 98 C850 108 860 176 930 180 C1010 184 1040 152 1105 152 L1200 152"
+    stroke="var(--color-ink)"
+    stroke-width="1.5"
+    pathLength="1"
+  ></path>
+
+  <!-- station markers + era labels -->
+  <g id="career-stations">
+    {
+      stations.map((s, i) => (
+        <g class="career-station">
+          <rect
+            x={s.x - 4}
+            y={s.y - 4}
+            width="8"
+            height="8"
+            fill="var(--color-bg)"
+            stroke="var(--color-ember)"
+            stroke-width="1.5"
+          />
+          <text
+            x={s.x}
+            y={s.y - 18}
+            text-anchor="middle"
+            font-family="var(--font-mono)"
+            font-size="11"
+            letter-spacing="2"
+            fill="var(--color-faint)"
+          >
+            {(labels[i] ?? "").toUpperCase()}
+          </text>
+        </g>
+      ))
+    }
+  </g>
+
+  <!-- the car — hidden until motion drives it along the drawn tip -->
+  <circle id="career-car" cx="0" cy="210" r="6" fill="var(--color-ember-vivid)" opacity="0"></circle>
+</svg>

@@ -1,0 +1,145 @@
+---
+import content from "../data/content.json";
+import Icon from "./Icon.astro";
+const { work } = content;
+
+const accentVar = (a: string) => (a === "ink" ? "var(--color-ink)" : "var(--color-ember)");
+---
+
+<section id="work" class="relative py-24 md:py-36">
+  <div class="ember-glow absolute inset-x-0 top-0 h-[40vh] opacity-50"></div>
+
+  <div class="relative mx-auto max-w-7xl px-5 md:px-8">
+    <div class="flex items-end justify-between gap-6">
+      <div class="max-w-3xl">
+        <p class="kicker mb-5" data-reveal>{work.kicker}</p>
+        <h2 class="display-xl text-[clamp(2rem,5vw,4rem)]" data-reveal>{work.heading}</h2>
+        <p class="mt-6 text-lg text-[var(--color-muted)]" data-reveal>{work.lede}</p>
+      </div>
+      <span class="anno mb-2 hidden shrink-0 lg:inline" data-reveal aria-hidden="true">DWG SET — 3 SHEETS</span>
+    </div>
+
+    <ul class="mt-14 flex flex-col gap-8">
+      {
+        work.items.map((b) => (
+          <li>
+            <a
+              href={b.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="spec-sheet group relative block overflow-hidden border border-[var(--color-line)] bg-[var(--color-surface)] p-7 transition-transform duration-300 hover:-translate-y-1 md:p-10"
+              style={`--accent:${accentVar(b.accent)}`}
+              data-reveal
+            >
+              {/* hover accent wash */}
+              <span
+                class="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                style="background: radial-gradient(80% 120% at 0% 0%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 60%);"
+                aria-hidden="true"
+              />
+              {/* drafting registration marks */}
+              <span class="corner corner-tl" aria-hidden="true" />
+              <span class="corner corner-tr" aria-hidden="true" />
+              <span class="corner corner-bl" aria-hidden="true" />
+              <span class="corner corner-br" aria-hidden="true" />
+
+              <div class="relative grid gap-8 md:grid-cols-[160px_1fr_auto] md:gap-12">
+                {/* sheet number + status stamp */}
+                <div class="flex items-center gap-6 md:flex-col md:items-start md:gap-5">
+                  <div>
+                    <span class="anno block">NO.</span>
+                    <span class="font-display text-6xl font-semibold leading-none text-[var(--color-faint)] transition-colors duration-300 group-hover:text-[var(--accent)] md:text-7xl">
+                      {b.no}
+                    </span>
+                  </div>
+                  <span class="stamp" style="color: var(--accent); border-color: color-mix(in srgb, var(--accent) 65%, transparent);">
+                    {b.status}
+                  </span>
+                </div>
+
+                {/* the sheet itself */}
+                <div>
+                  <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+                    <h3 class="font-display text-3xl font-semibold text-[var(--color-text)] md:text-4xl">{b.name}</h3>
+                    <span class="anno">{b.type}</span>
+                  </div>
+                  <p class="mt-3 font-display text-lg italic text-[var(--color-text)]/90 md:text-xl">“{b.tagline}”</p>
+                  <p class="mt-4 max-w-2xl text-[var(--color-muted)]">{b.body}</p>
+
+                  {/* spec table */}
+                  <dl class="mt-7 max-w-xl border-t border-[var(--color-line)]">
+                    {b.specs.map((s) => (
+                      <div class="flex items-baseline justify-between gap-6 border-b border-[var(--color-line)] py-2.5">
+                        <dt class="anno shrink-0">{s.label}</dt>
+                        <dd class="text-right font-mono text-[0.7rem] uppercase tracking-[0.14em] text-[var(--color-muted)]">
+                          {s.value}
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
+
+                  {/* outcomes */}
+                  <ul class="mt-5 flex flex-col gap-2">
+                    {b.outcomes.map((o) => (
+                      <li class="flex gap-3 text-sm text-[var(--color-muted)]">
+                        <span class="mt-[0.45rem] h-1.5 w-1.5 shrink-0" style="background: var(--accent);" aria-hidden="true" />
+                        <span>{o}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* action */}
+                <div class="flex items-center justify-between gap-4 md:flex-col md:items-end md:justify-start md:pt-1 md:text-right">
+                  <span class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.16em] text-[var(--color-text)] transition-colors duration-300 group-hover:text-[var(--accent)]">
+                    {b.cta}
+                    <Icon name="arrow" class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </span>
+                  <span class="font-mono text-[0.7rem] text-[var(--color-faint)]">{b.linkLabel}</span>
+                </div>
+              </div>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <!-- Narrative thread -->
+    <div
+      class="mt-10 flex items-start gap-4 border-l-2 border-[var(--color-ember)] bg-[var(--color-surface)]/40 py-5 pl-6 pr-5"
+      data-reveal
+    >
+      <Icon name="spark" class="mt-1 h-4 w-4 shrink-0 text-[var(--color-ember)]" />
+      <p class="max-w-3xl text-[var(--color-muted)] md:text-lg">{work.thread}</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Drafting registration marks in the sheet corners */
+  .corner {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    opacity: 0.7;
+    border: 0 solid var(--color-faint);
+  }
+  .corner-tl { top: 8px; left: 8px; border-top-width: 1px; border-left-width: 1px; }
+  .corner-tr { top: 8px; right: 8px; border-top-width: 1px; border-right-width: 1px; }
+  .corner-bl { bottom: 8px; left: 8px; border-bottom-width: 1px; border-left-width: 1px; }
+  .corner-br { bottom: 8px; right: 8px; border-bottom-width: 1px; border-right-width: 1px; }
+
+  /* Inspection stamp — angled, outlined, mono */
+  .stamp {
+    display: inline-block;
+    border: 2px solid;
+    padding: 0.3rem 0.7rem;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    transform: rotate(-5deg);
+    white-space: nowrap;
+  }
+</style>

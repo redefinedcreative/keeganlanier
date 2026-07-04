@@ -8,7 +8,10 @@ const { connect } = content;
   <div class="ember-glow absolute inset-x-0 bottom-0 h-[70vh]"></div>
 
   <div class="relative mx-auto max-w-7xl px-5 md:px-8">
-    <p class="kicker mb-5" data-reveal>{connect.kicker}</p>
+    <div class="flex items-baseline justify-between gap-6">
+      <p class="kicker mb-5" data-reveal>{connect.kicker}</p>
+      <span class="anno hidden sm:inline" data-reveal aria-hidden="true">{connect.annotation}</span>
+    </div>
     <h2 class="display-xl max-w-4xl text-[clamp(2.4rem,6.5vw,5.5rem)]" data-reveal>{connect.heading}</h2>
     <p class="mt-6 max-w-xl text-lg text-[var(--color-muted)]" data-reveal>{connect.lede}</p>
 

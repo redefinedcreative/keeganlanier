@@ -7,9 +7,10 @@
   },
   "nav": {
     "links": [
-      { "label": "The Operator", "href": "#operator" },
-      { "label": "The Builds", "href": "#builds" },
-      { "label": "How I Think", "href": "#philosophy" }
+      { "label": "The Work", "href": "#work" },
+      { "label": "The Story", "href": "#operator" },
+      { "label": "The Ride", "href": "#experience" },
+      { "label": "The Setlist", "href": "#setlist" }
     ]
   },
   "hero": {
@@ -18,9 +19,87 @@
     "headlineEmber": "systems",
     "headlineTail": "behind the experience.",
     "sub": "I've run kitchens and P&Ls, scaled technology for hyper-growth brands, and now I build software and web systems that are engineered to move the number that matters — not just look the part.",
-    "primaryCta": { "label": "See what I build", "href": "#builds" },
+    "primaryCta": { "label": "See the work", "href": "#work" },
     "secondaryCta": { "label": "The story", "href": "#operator" },
-    "scrollCue": "Begin the descent"
+    "scrollCue": "Begin the descent",
+    "annotations": ["ELEV 128'-0\"", "SECTION A-A", "SCALE 1:200"],
+    "titleBlock": {
+      "dwg": "KL-2026",
+      "rev": "C",
+      "drawnBy": "K. LANIER",
+      "sheet": "1 OF 1"
+    }
+  },
+  "work": {
+    "kicker": "The Work",
+    "heading": "Three builds, drawn to scale.",
+    "lede": "An agency and two apps. Different surfaces, same instinct: build the thing that respects the person using it.",
+    "thread": "Orva and PlainMind share the same blueprint — calm, private, local-first software that respects your attention instead of mining it. I build the antidote to hype.",
+    "items": [
+      {
+        "no": "01",
+        "name": "Redefined Creative",
+        "type": "Web & SEO Studio",
+        "status": "In Service",
+        "tagline": "More booked jobs. Not just a better-looking website.",
+        "body": "My web design and local SEO studio. I build high-performance WordPress systems that turn home-service businesses into the local authority in their market — strategy, design, and the hosting to back it up.",
+        "specs": [
+          { "label": "Role", "value": "Founder & builder" },
+          { "label": "Stack", "value": "WordPress · Local SEO · Managed hosting" },
+          { "label": "Since", "value": "2015" }
+        ],
+        "outcomes": [
+          "Built to convert visitors into booked jobs, not to win design awards",
+          "Owner-operated end to end — strategy, build, and hosting under one roof"
+        ],
+        "href": "https://redefinedcreative.com",
+        "linkLabel": "redefinedcreative.com",
+        "cta": "Visit the studio",
+        "accent": "ember"
+      },
+      {
+        "no": "02",
+        "name": "Orva",
+        "type": "iOS App",
+        "status": "Testing",
+        "tagline": "The calm operating system for your life.",
+        "body": "A calendar and task app that protects your time instead of maximizing it. It caps your work hours, guards personal time, and drafts tomorrow's plan each night for your approval. Local-first and private — no accounts, no servers.",
+        "specs": [
+          { "label": "Role", "value": "Design & engineering" },
+          { "label": "Stack", "value": "Swift · SwiftUI · Local-first" },
+          { "label": "Status", "value": "In beta" }
+        ],
+        "outcomes": [
+          "Caps work hours and guards personal time by design",
+          "No accounts, no servers — nothing to track, nothing to leak"
+        ],
+        "href": "https://getorva.app",
+        "linkLabel": "getorva.app",
+        "cta": "See Orva",
+        "accent": "ink"
+      },
+      {
+        "no": "03",
+        "name": "PlainMind",
+        "type": "iOS App",
+        "status": "Open Beta",
+        "tagline": "Save anything. Find it later.",
+        "body": "A calm, private place for the links, music, places, and ideas you want to remember. Save from any app in one tap; everything auto-organizes by type, and on-device search finds it again. No feed, no tracking.",
+        "specs": [
+          { "label": "Role", "value": "Design & engineering" },
+          { "label": "Stack", "value": "Swift · SwiftUI · On-device search" },
+          { "label": "Status", "value": "Open beta" }
+        ],
+        "outcomes": [
+          "One-tap save from any app, auto-organized by type",
+          "No feed, no tracking — search that stays on your device"
+        ],
+        "href": "https://plainmind.app",
+        "linkLabel": "plainmind.app",
+        "cta": "Join the beta",
+        "accent": "ember"
+      }
+    ]
   },
   "operator": {
     "kicker": "The Operator",
@@ -44,51 +123,63 @@
       }
     ]
   },
-  "builds": {
-    "kicker": "The Builds",
-    "heading": "Three things I've engineered.",
-    "lede": "An agency and two apps. Different surfaces, same instinct: build the thing that respects the person using it.",
-    "thread": "Orva and PlainMind share the same blueprint — calm, private, local-first software that respects your attention instead of mining it. I build the antidote to hype.",
-    "items": [
+  "experience": {
+    "kicker": "The Ride So Far",
+    "heading": "One track, four acts.",
+    "lede": "Every career has an elevation profile. Mine climbs through kitchens, crosses over into technology, and keeps building speed.",
+    "stations": [
       {
-        "name": "Redefined Creative",
-        "type": "Web & SEO Studio",
-        "status": "Live",
-        "tagline": "More booked jobs. Not just a better-looking website.",
-        "body": "My web design and local SEO studio. I build high-performance WordPress systems that turn home-service businesses into the local authority in their market — strategy, design, and the hosting to back it up.",
-        "href": "https://redefinedcreative.com",
-        "linkLabel": "redefinedcreative.com",
-        "cta": "Visit the studio",
-        "accent": "ember"
+        "id": "STA-01",
+        "era": "Act I",
+        "duration": "Hospitality operations",
+        "title": "Food-service operations leadership",
+        "summary": "Business, learned the hard way — on the line, on tight margins.",
+        "highlights": [
+          "Ran kitchens and food-service operations: P&Ls, scheduling, vendors, and long days",
+          "Led a team recognized with a national Menu Masters Award",
+          "Learned to build systems stronger than the person working them"
+        ]
       },
       {
-        "name": "Orva",
-        "type": "iOS App",
-        "status": "In Beta",
-        "tagline": "The calm operating system for your life.",
-        "body": "A calendar and task app that protects your time instead of maximizing it. It caps your work hours, guards personal time, and drafts tomorrow's plan each night for your approval. Local-first and private — no accounts, no servers.",
-        "href": "https://getorva.app",
-        "linkLabel": "getorva.app",
-        "cta": "See Orva",
-        "accent": "neon"
+        "id": "STA-02",
+        "era": "Act II",
+        "duration": "The crossover",
+        "title": "Operations → technology",
+        "summary": "The operator picked up the tools and started automating the work.",
+        "highlights": [
+          "Became the translator between the floor and the server room",
+          "Turned manual processes into systems that outlived the shift"
+        ]
       },
       {
-        "name": "PlainMind",
-        "type": "iOS App",
-        "status": "Open Beta",
-        "tagline": "Save anything. Find it later.",
-        "body": "A calm, private place for the links, music, places, and ideas you want to remember. Save from any app in one tap; everything auto-organizes by type, and on-device search finds it again. No feed, no tracking.",
-        "href": "https://plainmind.app",
-        "linkLabel": "plainmind.app",
-        "cta": "Join the beta",
-        "accent": "ember"
+        "id": "STA-03",
+        "era": "Act III",
+        "duration": "Technology leadership",
+        "title": "Director of IT, national wellness brand",
+        "summary": "Enterprise systems for a hyper-growth retail and e-commerce operation.",
+        "highlights": [
+          "Architect and scale the systems and automation behind complex retail operations",
+          "Enterprise-grade rigor with an operator's empathy for the people using it"
+        ]
+      },
+      {
+        "id": "STA-04",
+        "era": "Act IV",
+        "duration": "Founder & builder",
+        "title": "Studio and software",
+        "summary": "Redefined Creative, Orva, and PlainMind — built nights and weekends, shipped for real.",
+        "highlights": [
+          "Web & local SEO studio turning home-service businesses into local authorities",
+          "Two calm, local-first iOS apps in beta — the antidote to hype"
+        ]
       }
     ]
   },
-  "philosophy": {
-    "kicker": "How I Think",
-    "heading": "Systems over guesswork.",
-    "lede": "Four rules that show up in everything I build.",
+  "setlist": {
+    "kicker": "The Setlist",
+    "heading": "Four songs I never skip.",
+    "lede": "The principles behind everything I build — played in order, no filler.",
+    "annotation": "AUDIO — FOH CONSOLE",
     "principles": [
       {
         "no": "01",
@@ -110,12 +201,17 @@
         "title": "Respect the attention",
         "body": "The best software gets out of your way. No dark patterns, no infinite feed, no noise. Tools should serve you, not farm you."
       }
-    ]
+    ],
+    "encore": {
+      "label": "Encore",
+      "body": "Off the clock: chasing coasters at Universal and Disney, standing front-of-house at live shows, and studying how the parks run the best operations on earth."
+    }
   },
   "connect": {
     "kicker": "Connect",
     "heading": "Let's build something that works.",
     "lede": "Always up for a conversation about technology, operations, or building products. Find me here.",
+    "annotation": "OPEN CHANNEL",
     "socials": [
       { "label": "LinkedIn", "icon": "linkedin", "href": "https://linkedin.com/in/keeganlanier" },
       { "label": "X", "icon": "x", "href": "https://x.com/keeganlanier" },
@@ -129,6 +225,7 @@
   },
   "footer": {
     "tagline": "The magic out front. The systems in the back.",
-    "signature": "Built by Keegan Lanier"
+    "signature": "Built by Keegan Lanier",
+    "endOfRide": "End of the line — thanks for riding."
   }
 }

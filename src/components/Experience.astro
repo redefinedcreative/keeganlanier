@@ -1,0 +1,50 @@
+---
+import content from "../data/content.json";
+import TrackProfile from "./TrackProfile.astro";
+const { experience } = content;
+---
+
+<section id="experience" class="relative overflow-hidden border-t border-[var(--color-line)] py-24 md:py-36">
+  <div class="blueprint absolute inset-0 opacity-40"></div>
+
+  <div class="relative mx-auto max-w-7xl px-5 md:px-8">
+    <div class="flex items-end justify-between gap-6">
+      <div class="max-w-3xl">
+        <p class="kicker mb-5" data-reveal>{experience.kicker}</p>
+        <h2 class="display-xl text-[clamp(2rem,5vw,4rem)]" data-reveal>{experience.heading}</h2>
+        <p class="mt-6 text-lg text-[var(--color-muted)]" data-reveal>{experience.lede}</p>
+      </div>
+      <span class="anno mb-2 hidden shrink-0 lg:inline" data-reveal aria-hidden="true">ELEVATION PROFILE — N.T.S.</span>
+    </div>
+
+    <!-- The ride, drawn to scale (decorative; content is in the cards below) -->
+    <div class="mt-12" data-reveal>
+      <TrackProfile labels={experience.stations.map((s) => s.era)} />
+    </div>
+
+    <!-- Station cards — the actual resume -->
+    <ol class="mt-6 grid gap-px overflow-hidden border border-[var(--color-line)] bg-[var(--color-line)] md:mt-10 md:grid-cols-2 xl:grid-cols-4">
+      {
+        experience.stations.map((s) => (
+          <li class="group relative bg-[var(--color-bg)] p-7 transition-colors duration-300 hover:bg-[var(--color-surface)]" data-reveal>
+            <div class="flex items-baseline justify-between gap-4">
+              <span class="font-mono text-xs tracking-[0.2em] text-[var(--color-ember)]">{s.id}</span>
+              <span class="anno">{s.era}</span>
+            </div>
+            <p class="anno mt-5">{s.duration}</p>
+            <h3 class="mt-2 font-display text-xl font-medium leading-snug text-[var(--color-text)]">{s.title}</h3>
+            <p class="mt-3 text-sm text-[var(--color-muted)]">{s.summary}</p>
+            <ul class="mt-4 flex flex-col gap-2 border-t border-[var(--color-line)] pt-4">
+              {s.highlights.map((h) => (
+                <li class="flex gap-3 text-sm text-[var(--color-muted)]">
+                  <span class="mt-[0.45rem] h-1.5 w-1.5 shrink-0 bg-[var(--color-ember)]" aria-hidden="true" />
+                  <span>{h}</span>
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
