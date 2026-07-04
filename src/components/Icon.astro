@@ -1,7 +1,7 @@
 ---
 // Brand glyphs from Simple Icons (official 24x24 paths); UI glyphs hand-drawn.
 interface Props {
-  name: "linkedin" | "x" | "instagram" | "facebook" | "arrow" | "spark";
+  name: "linkedin" | "x" | "instagram" | "facebook" | "arrow" | "spark" | "sun" | "moon";
   class?: string;
 }
 const { name, class: klass = "" } = Astro.props;
@@ -36,6 +36,21 @@ const brand: Record<string, string> = {
   name === "spark" && (
     <svg class={klass} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d="M12 1l2.4 7.2L22 11l-7.6 2.8L12 23l-2.4-9.2L2 11l7.6-2.8z" />
+    </svg>
+  )
+}
+{
+  name === "sun" && (
+    <svg class={klass} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.5" />
+      <path d="M12 2.5v2.5M12 19v2.5M21.5 12H19M5 12H2.5M18.7 5.3l-1.8 1.8M7.1 16.9l-1.8 1.8M18.7 18.7l-1.8-1.8M7.1 7.1L5.3 5.3" />
+    </svg>
+  )
+}
+{
+  name === "moon" && (
+    <svg class={klass} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z" />
     </svg>
   )
 }

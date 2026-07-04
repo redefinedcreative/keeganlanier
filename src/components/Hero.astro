@@ -10,7 +10,7 @@ const { hero, builds } = content;
   <div class="ember-glow absolute -top-1/4 left-1/2 h-[120vh] w-[120vh] -translate-x-1/2"></div>
   <div
     class="absolute inset-0"
-    style="background: radial-gradient(120% 90% at 50% 100%, rgba(16,13,11,0.9), transparent 60%);"
+    style="background: radial-gradient(120% 90% at 50% 100%, color-mix(in srgb, var(--bg) 90%, transparent), transparent 60%);"
   >
   </div>
 
@@ -55,7 +55,7 @@ const { hero, builds } = content;
     <div class="mt-10 flex flex-wrap items-center gap-4 hero-rise" style="animation-delay:.36s">
       <a
         href={hero.primaryCta.href}
-        class="group inline-flex items-center gap-2 bg-[var(--color-ember)] px-6 py-3.5 font-mono text-xs font-medium uppercase tracking-[0.16em] text-[#160c04] transition-transform duration-200 hover:-translate-y-0.5"
+        class="group inline-flex items-center gap-2 bg-[var(--color-ember)] px-6 py-3.5 font-mono text-xs font-medium uppercase tracking-[0.16em] text-[var(--color-on-accent)] transition-transform duration-200 hover:-translate-y-0.5"
       >
         {hero.primaryCta.label}
         <Icon name="arrow" class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

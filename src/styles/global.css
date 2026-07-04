@@ -22,21 +22,82 @@
   font-display: swap;
 }
 
-/* ── Design tokens (Backstage of the Experience) ───────────────────────────
-   Dark + warm ember: espresso base, coffee-roast surfaces, molten accent,
-   sparing arcade-neon highlight. */
-@theme {
-  --color-bg:          #100D0B; /* near-black espresso */
-  --color-surface:     #1A1512; /* warm charcoal */
-  --color-surface-2:   #241D17; /* raised coffee */
-  --color-line:        #34291F; /* warm hairline */
-  --color-text:        #F2E9DC; /* warm cream */
-  --color-muted:       #A89A88; /* warm taupe */
-  --color-faint:       #8A7D6A; /* dim taupe — AA (>=4.5:1) on --color-bg for small text */
-  --color-ember:       #F2660C; /* molten orange — dominant accent */
-  --color-ember-soft:  #FF8A3D; /* heated highlight */
-  --color-neon:        #2DE2C0; /* electric teal — used sparingly */
+/* ── Raw palette (Ride Blueprint) ───────────────────────────────────────────
+   Two drawings of the same ride:
+   LIGHT — drafting paper: warm paper white, blueprint-ink lines.
+   DARK  — night blueprint: blue-black, luminous ink.
+   Ember orange is the accent thread through both.
 
+   Theme-dependent values live ONLY here as raw vars; @theme inline maps them
+   to Tailwind tokens so swapping [data-theme] swaps everything. */
+:root {
+  /* LIGHT — drafting paper */
+  --bg:            #F6F1E7;
+  --surface:       #FDFAF2;
+  --surface-2:     #EEE7D8;
+  --line:          #C9BFA9;
+  --ink:           #22384E; /* blueprint ink — graphics, hairlines, drawings */
+  --text:          #1C2733;
+  --muted:         #4E5D6C; /* ≥4.5:1 on --bg */
+  --faint:         #5E6B77; /* ≥4.5:1 on --bg for small mono labels */
+  --ember:         #C24E05; /* darkened for AA as text on paper */
+  --ember-soft:    #A84403; /* kickers darken on light, never lighten */
+  --ember-vivid:   #F2660C; /* graphics/fills only — fails AA as small text on paper */
+  --on-accent:     #FFF6EA;
+  --grid-ink:      color-mix(in srgb, var(--ink) 9%, transparent);
+  --grid-ink-major: color-mix(in srgb, var(--ink) 14%, transparent);
+  --glow-alpha:    12%;
+  --grain-opacity: 0.025;
+  --grain-blend:   multiply;
+}
+[data-theme="dark"] {
+  /* DARK — night blueprint. KEEP IN SYNC with the no-JS fallback below. */
+  --bg:            #0A0F1A;
+  --surface:       #111827;
+  --surface-2:     #182238;
+  --line:          #263349;
+  --ink:           #8FB0CC;
+  --text:          #EFEBE1;
+  --muted:         #A5AFBD;
+  --faint:         #8B96A5;
+  --ember:         #F2660C;
+  --ember-soft:    #FF8A3D;
+  --ember-vivid:   #F2660C;
+  --on-accent:     #160C04;
+  --grid-ink:      color-mix(in srgb, var(--ink) 10%, transparent);
+  --grid-ink-major: color-mix(in srgb, var(--ink) 16%, transparent);
+  --glow-alpha:    22%;
+  --grain-opacity: 0.05;
+  --grain-blend:   overlay;
+}
+/* No-JS fallback: honor the OS when no data-theme was set.
+   KEEP IN SYNC with the [data-theme="dark"] block above. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --bg:            #0A0F1A;
+    --surface:       #111827;
+    --surface-2:     #182238;
+    --line:          #263349;
+    --ink:           #8FB0CC;
+    --text:          #EFEBE1;
+    --muted:         #A5AFBD;
+    --faint:         #8B96A5;
+    --ember:         #F2660C;
+    --ember-soft:    #FF8A3D;
+    --ember-vivid:   #F2660C;
+    --on-accent:     #160C04;
+    --grid-ink:      color-mix(in srgb, var(--ink) 10%, transparent);
+    --grid-ink-major: color-mix(in srgb, var(--ink) 16%, transparent);
+    --glow-alpha:    22%;
+    --grain-opacity: 0.05;
+    --grain-blend:   overlay;
+  }
+}
+
+/* Style under [data-theme="dark"] (or system dark with no JS) via `dark:` */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+@theme {
   --font-display: "Clash Display", ui-sans-serif, system-ui, sans-serif;
   --font-body:    "Hanken Grotesk Variable", "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-mono:    "JetBrains Mono Variable", "JetBrains Mono", ui-monospace, monospace;
@@ -44,8 +105,26 @@
   --ease-coaster: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Tailwind tokens resolve through the raw vars at use-time, so every existing
+   var(--color-*) reference swaps with the theme. */
+@theme inline {
+  --color-bg:          var(--bg);
+  --color-surface:     var(--surface);
+  --color-surface-2:   var(--surface-2);
+  --color-line:        var(--line);
+  --color-ink:         var(--ink);
+  --color-text:        var(--text);
+  --color-muted:       var(--muted);
+  --color-faint:       var(--faint);
+  --color-ember:       var(--ember);
+  --color-ember-soft:  var(--ember-soft);
+  --color-ember-vivid: var(--ember-vivid);
+  --color-on-accent:   var(--on-accent);
+}
+
 /* ── Base ──────────────────────────────────────────────────────────────── */
 html {
+  background-color: var(--bg); /* on <html> so overscroll never flashes UA default */
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -62,10 +141,10 @@ body {
 
 ::selection {
   background: var(--color-ember);
-  color: #160c04;
+  color: var(--color-on-accent);
 }
 
-/* Warm, slim scrollbar */
+/* Slim, on-theme scrollbar */
 ::-webkit-scrollbar { width: 11px; }
 ::-webkit-scrollbar-track { background: var(--color-bg); }
 ::-webkit-scrollbar-thumb {
@@ -103,7 +182,7 @@ body {
   transform: translate(-50%, -120%);
   z-index: 200;
   background: var(--color-ember);
-  color: #160c04;
+  color: var(--color-on-accent);
   font-family: var(--font-mono);
   font-size: 0.8rem;
   text-transform: uppercase;
@@ -116,15 +195,15 @@ body {
   outline-offset: 2px;
 }
 
-/* ── Atmosphere: film grain over the whole stage ───────────────────────── */
+/* ── Atmosphere: paper/film grain over the whole drawing ───────────────── */
 .grain::after {
   content: "";
   position: fixed;
   inset: 0;
   z-index: 100;
   pointer-events: none;
-  opacity: 0.05;
-  mix-blend-mode: overlay;
+  opacity: var(--grain-opacity);
+  mix-blend-mode: var(--grain-blend);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
@@ -140,6 +219,15 @@ body {
   color: var(--color-ember-soft);
 }
 
+/* Small blueprint annotation label — dimension callouts, spec notes */
+.anno {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-faint);
+}
+
 .display-xl {
   font-family: var(--font-display);
   font-weight: 600;
@@ -149,7 +237,12 @@ body {
 
 /* Ember word — molten gradient text */
 .ember-text {
-  background: linear-gradient(100deg, var(--color-ember-soft), var(--color-ember) 55%, #c64a06);
+  background: linear-gradient(
+    100deg,
+    var(--color-ember-soft),
+    var(--color-ember) 55%,
+    color-mix(in srgb, var(--color-ember) 82%, black)
+  );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -157,7 +250,11 @@ body {
 
 /* ── Glows & textures ──────────────────────────────────────────────────── */
 .ember-glow {
-  background: radial-gradient(60% 60% at 50% 40%, rgba(242,102,12,0.22), transparent 70%);
+  background: radial-gradient(
+    60% 60% at 50% 40%,
+    color-mix(in srgb, var(--ember-vivid) var(--glow-alpha), transparent),
+    transparent 70%
+  );
 }
 
 /* Oversized decorative footer wordmark (generated content = exempt from contrast checks) */
@@ -174,12 +271,19 @@ body {
   transform: translateY(0.12em);
 }
 
-/* Faint engineered "blueprint" grid — the backstage systems showing through */
+/* Engineering grid — fine minor lines with a heavier major line, like graph
+   paper on a drafting table. Pure CSS, themeable through --grid-ink. */
 .blueprint {
   background-image:
-    linear-gradient(to right, rgba(168,154,136,0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(168,154,136,0.05) 1px, transparent 1px);
-  background-size: 48px 48px;
+    linear-gradient(to right, var(--grid-ink-major) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-ink-major) 1px, transparent 1px),
+    linear-gradient(to right, var(--grid-ink) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-ink) 1px, transparent 1px);
+  background-size:
+    96px 96px,
+    96px 96px,
+    24px 24px,
+    24px 24px;
 }
 
 /* ── Scroll reveal — IntersectionObserver toggles .is-visible (no JS library) ──
@@ -198,6 +302,26 @@ body {
   to   { transform: none; }
 }
 .js .hero-rise { animation: heroRise 0.7s var(--ease-coaster) backwards; }
+
+/* ── Theme switch transition — applied by the toggle only at click time so
+   there is never a transition-on-load flash. */
+.theme-anim,
+.theme-anim *,
+.theme-anim *::before,
+.theme-anim *::after {
+  transition:
+    background-color 0.25s var(--ease-coaster),
+    border-color 0.25s var(--ease-coaster),
+    color 0.25s var(--ease-coaster) !important;
+}
+
+/* Theme toggle is a JS control — hide it when JS isn't available */
+html:not(.js) .theme-toggle { display: none; }
+
+/* Sun/moon + labels swap with the active theme */
+.theme-toggle .tt-dark { display: none; }
+[data-theme="dark"] .theme-toggle .tt-dark { display: inline-flex; }
+[data-theme="dark"] .theme-toggle .tt-light { display: none; }
 
 /* Respect reduced motion: everything appears instantly, no transforms */
 @media (prefers-reduced-motion: reduce) {

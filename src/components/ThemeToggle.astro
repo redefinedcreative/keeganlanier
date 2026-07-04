@@ -1,0 +1,66 @@
+---
+// Theme switch styled as a blueprint legend row: LIGHTING — DAY OPS / NIGHT OPS.
+// The head script in Base.astro sets [data-theme] pre-paint; this only flips it.
+// Hidden entirely without JS (html:not(.js) .theme-toggle in global.css).
+import Icon from "./Icon.astro";
+---
+
+<button
+  type="button"
+  class="theme-toggle group flex items-center gap-3"
+  data-theme-toggle
+>
+  <span class="anno" aria-hidden="true">Lighting</span>
+  <span
+    class="flex items-center gap-2 border border-[var(--color-line)] px-3 py-1.5 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-[var(--color-muted)] transition-colors duration-200 group-hover:border-[var(--color-ember)] group-hover:text-[var(--color-ember)]"
+  >
+    <span class="tt-light inline-flex items-center gap-2">
+      <Icon name="sun" class="h-3.5 w-3.5" />
+      Day Ops
+    </span>
+    <span class="tt-dark inline-flex items-center gap-2">
+      <Icon name="moon" class="h-3.5 w-3.5" />
+      Night Ops
+    </span>
+  </span>
+</button>
+
+<script>
+  const root = document.documentElement;
+  const metas = document.querySelectorAll<HTMLMetaElement>('meta[name="theme-color"]');
+  const BG: Record<string, string> = { light: "#F6F1E7", dark: "#0A0F1A" };
+
+  function labelFor(theme: string) {
+    return theme === "dark" ? "Switch to light theme" : "Switch to dark theme";
+  }
+
+  function apply(theme: string, persist: boolean) {
+    root.setAttribute("data-theme", theme);
+    metas.forEach((m) => (m.content = BG[theme]));
+    document.querySelectorAll("[data-theme-toggle]").forEach((b) => b.setAttribute("aria-label", labelFor(theme)));
+    if (persist) {
+      try {
+        localStorage.setItem("theme", theme);
+      } catch (e) {}
+    }
+  }
+
+  document.querySelectorAll<HTMLButtonElement>("[data-theme-toggle]").forEach((btn) => {
+    btn.setAttribute("aria-label", labelFor(root.getAttribute("data-theme") ?? "light"));
+    btn.addEventListener("click", () => {
+      const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      // Color transition only around an intentional switch — never on load
+      root.classList.add("theme-anim");
+      apply(next, true);
+      setTimeout(() => root.classList.remove("theme-anim"), 300);
+    });
+  });
+
+  // Follow OS changes only while the visitor has no stored preference
+  matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
+    try {
+      if (localStorage.getItem("theme")) return;
+    } catch (err) {}
+    apply(e.matches ? "dark" : "light", false);
+  });
+</script>
