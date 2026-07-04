@@ -7,10 +7,22 @@
   },
   "nav": {
     "links": [
-      { "label": "The Work", "href": "#work" },
-      { "label": "The Operator", "href": "#operator" },
-      { "label": "The Ride", "href": "#experience" },
-      { "label": "The Notes", "href": "#notes" }
+      {
+        "label": "The Work",
+        "href": "#work"
+      },
+      {
+        "label": "The Operator",
+        "href": "#operator"
+      },
+      {
+        "label": "The Ride",
+        "href": "#experience"
+      },
+      {
+        "label": "The Philosophy",
+        "href": "#philosophy"
+      }
     ]
   },
   "hero": {
@@ -19,10 +31,20 @@
     "headlineEmber": "systems",
     "headlineTail": "behind the experience.",
     "sub": "I've run kitchens and P&Ls, scaled technology for hyper-growth brands, and now I build software and web systems that are engineered to move the number that matters — not just look the part.",
-    "primaryCta": { "label": "See the work", "href": "#work" },
-    "secondaryCta": { "label": "The story", "href": "#operator" },
+    "primaryCta": {
+      "label": "See the work",
+      "href": "#work"
+    },
+    "secondaryCta": {
+      "label": "The story",
+      "href": "#operator"
+    },
     "scrollCue": "Begin the descent",
-    "annotations": ["ELEV 128'-0\"", "SECTION A-A", "SCALE 1:200"],
+    "annotations": [
+      "ELEV 128'-0\"",
+      "SECTION A-A",
+      "SCALE 1:200"
+    ],
     "titleBlock": {
       "dwg": "KL-2026",
       "rev": "C",
@@ -44,9 +66,18 @@
         "tagline": "More booked jobs. Not just a better-looking website.",
         "body": "My web design and local SEO studio. I build high-performance WordPress systems that turn home-service businesses into the local authority in their market — strategy, design, and the hosting to back it up.",
         "specs": [
-          { "label": "Role", "value": "Founder & builder" },
-          { "label": "Stack", "value": "WordPress · Local SEO · Managed hosting" },
-          { "label": "Since", "value": "2015" }
+          {
+            "label": "Role",
+            "value": "Founder & builder"
+          },
+          {
+            "label": "Stack",
+            "value": "WordPress · Local SEO · Managed hosting"
+          },
+          {
+            "label": "Since",
+            "value": "2015"
+          }
         ],
         "outcomes": [
           "Built to convert visitors into booked jobs, not to win design awards",
@@ -65,9 +96,18 @@
         "tagline": "The calm operating system for your life.",
         "body": "A calendar and task app that protects your time instead of maximizing it. It caps your work hours, guards personal time, and drafts tomorrow's plan each night for your approval. Local-first and private — no accounts, no servers.",
         "specs": [
-          { "label": "Role", "value": "Design & engineering" },
-          { "label": "Stack", "value": "Swift · SwiftUI · Local-first" },
-          { "label": "Status", "value": "In beta" }
+          {
+            "label": "Role",
+            "value": "Design & engineering"
+          },
+          {
+            "label": "Stack",
+            "value": "Swift · SwiftUI · Local-first"
+          },
+          {
+            "label": "Status",
+            "value": "In beta"
+          }
         ],
         "outcomes": [
           "Caps work hours and guards personal time by design",
@@ -86,9 +126,18 @@
         "tagline": "Save anything. Find it later.",
         "body": "A calm, private place for the links, music, places, and ideas you want to remember. Save from any app in one tap; everything auto-organizes by type, and on-device search finds it again. No feed, no tracking.",
         "specs": [
-          { "label": "Role", "value": "Design & engineering" },
-          { "label": "Stack", "value": "Swift · SwiftUI · On-device search" },
-          { "label": "Status", "value": "Open beta" }
+          {
+            "label": "Role",
+            "value": "Design & engineering"
+          },
+          {
+            "label": "Stack",
+            "value": "Swift · SwiftUI · On-device search"
+          },
+          {
+            "label": "Status",
+            "value": "Open beta"
+          }
         ],
         "outcomes": [
           "One-tap save from any app, auto-organized by type",
@@ -125,12 +174,12 @@
   },
   "experience": {
     "kicker": "The Ride So Far",
-    "heading": "One track, four acts.",
+    "heading": "One track, four sections.",
     "lede": "Every career has an elevation profile. Mine climbs through kitchens, crosses over into technology, and keeps building speed.",
     "stations": [
       {
         "id": "STA-01",
-        "era": "Act I",
+        "era": "Section I",
         "duration": "Hospitality operations",
         "title": "Food-service operations leadership",
         "summary": "Business, learned the hard way — on the line, on tight margins.",
@@ -142,10 +191,10 @@
       },
       {
         "id": "STA-02",
-        "era": "Act II",
+        "era": "Section II",
         "duration": "The crossover",
-        "title": "Operations → technology",
-        "summary": "The operator picked up the tools and started automating the work.",
+        "title": "Technology systems architecture",
+        "summary": "The operator picked up the tools and built the systems.",
         "highlights": [
           "Became the translator between the floor and the server room",
           "Turned manual processes into systems that outlived the shift"
@@ -153,18 +202,18 @@
       },
       {
         "id": "STA-03",
-        "era": "Act III",
-        "duration": "Technology leadership",
-        "title": "Director of IT, national wellness brand",
-        "summary": "Enterprise systems for a hyper-growth retail and e-commerce operation.",
+        "era": "Section III",
+        "duration": "Operations & technology",
+        "title": "Leadership",
+        "summary": "Executive leadership where operations and technology meet.",
         "highlights": [
-          "Architect and scale the systems and automation behind complex retail operations",
-          "Enterprise-grade rigor with an operator's empathy for the people using it"
+          "VP of Operations for high-growth, full-service brands",
+          "Director of IT for a national wellness brand"
         ]
       },
       {
         "id": "STA-04",
-        "era": "Act IV",
+        "era": "Section IV",
         "duration": "Founder & builder",
         "title": "Studio and software",
         "summary": "Redefined Creative, Orva, and PlainMind — built nights and weekends, shipped for real.",
@@ -175,10 +224,10 @@
       }
     ]
   },
-  "notes": {
-    "kicker": "General Notes",
+  "philosophy": {
+    "kicker": "The Philosophy",
     "heading": "Read before building.",
-    "lede": "Four notes that apply to every sheet I ship — no exceptions, no fine print.",
+    "lede": "Four notes on how I think — they apply to all sheets, no exceptions, no fine print.",
     "annotation": "TYP. ALL SHEETS",
     "principles": [
       {
@@ -213,14 +262,35 @@
     "lede": "Always up for a conversation about technology, operations, or building products. Find me here.",
     "annotation": "OPEN CHANNEL",
     "socials": [
-      { "label": "LinkedIn", "icon": "linkedin", "href": "https://linkedin.com/in/keeganlanier" },
-      { "label": "X", "icon": "x", "href": "https://x.com/keeganlanier" },
-      { "label": "Facebook", "icon": "facebook", "href": "https://facebook.com/keeganlanier84" }
+      {
+        "label": "LinkedIn",
+        "icon": "linkedin",
+        "href": "https://linkedin.com/in/keeganlanier"
+      },
+      {
+        "label": "X",
+        "icon": "x",
+        "href": "https://x.com/keeganlanier"
+      },
+      {
+        "label": "Facebook",
+        "icon": "facebook",
+        "href": "https://facebook.com/keeganlanier84"
+      }
     ],
     "products": [
-      { "label": "Redefined Creative", "href": "https://redefinedcreative.com" },
-      { "label": "Orva", "href": "https://getorva.app" },
-      { "label": "PlainMind", "href": "https://plainmind.app" }
+      {
+        "label": "Redefined Creative",
+        "href": "https://redefinedcreative.com"
+      },
+      {
+        "label": "Orva",
+        "href": "https://getorva.app"
+      },
+      {
+        "label": "PlainMind",
+        "href": "https://plainmind.app"
+      }
     ]
   },
   "footer": {

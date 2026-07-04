@@ -286,6 +286,12 @@ body {
     24px 24px;
 }
 
+/* Grid that dissolves at its edges instead of ending on a hard line */
+.blueprint-fade {
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, black 62%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 0%, black 62%, transparent 100%);
+}
+
 /* ── Scroll reveal — IntersectionObserver toggles .is-visible (no JS library) ──
    Only hide when JS is present (.js on <html>); without JS, content shows. */
 .js [data-reveal] {

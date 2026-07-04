@@ -82,6 +82,26 @@ if (wantsHeavyMotion) {
       });
     });
 
+    // ── Work: spec sheets glide up as they enter ────────────────────────────
+    // The IO reveal fires while these tall panels are still below the fold,
+    // so the CSS animation finishes off-screen and reads as instant. GSAP
+    // takes over: neutralize the CSS path, trigger on viewport position.
+    gsap.utils.toArray<HTMLElement>(".spec-sheet").forEach((sheet) => {
+      sheet.classList.add("is-visible");
+      sheet.style.transition = "none";
+      gsap.fromTo(
+        sheet,
+        { autoAlpha: 0, y: 48 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 1.2,
+          ease: "power3.out",
+          scrollTrigger: { trigger: sheet, start: "top 85%", once: true },
+        }
+      );
+    });
+
     // ── Work: inspection stamps press onto the spec sheets ─────────────────
     gsap.utils.toArray<HTMLElement>(".spec-sheet .stamp").forEach((stamp) => {
       gsap.from(stamp, {

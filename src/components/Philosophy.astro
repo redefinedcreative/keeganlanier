@@ -1,23 +1,23 @@
 ---
 import content from "../data/content.json";
-const { notes } = content;
+const { philosophy } = content;
 ---
 
-<section id="notes" class="relative py-24 md:py-36">
+<section id="philosophy" class="relative py-24 md:py-36">
   <div class="mx-auto max-w-7xl px-5 md:px-8">
     <div class="flex items-end justify-between gap-6">
       <div class="max-w-3xl">
-        <p class="kicker mb-5" data-reveal>{notes.kicker}</p>
-        <h2 class="display-xl text-[clamp(2rem,5vw,4rem)]" data-reveal>{notes.heading}</h2>
-        <p class="mt-6 text-lg text-[var(--color-muted)]" data-reveal>{notes.lede}</p>
+        <p class="kicker mb-5" data-reveal>{philosophy.kicker}</p>
+        <h2 class="display-xl text-[clamp(2rem,5vw,4rem)]" data-reveal>{philosophy.heading}</h2>
+        <p class="mt-6 text-lg text-[var(--color-muted)]" data-reveal>{philosophy.lede}</p>
       </div>
-      <span class="anno mb-2 hidden shrink-0 lg:inline" data-reveal aria-hidden="true">{notes.annotation}</span>
+      <span class="anno mb-2 hidden shrink-0 lg:inline" data-reveal aria-hidden="true">{philosophy.annotation}</span>
     </div>
 
     <!-- The notes — numbered like the general notes on a drawing sheet -->
     <ol class="mt-14 border-t border-[var(--color-line)]">
       {
-        notes.principles.map((p) => (
+        philosophy.principles.map((p) => (
           <li
             class="group grid gap-x-8 gap-y-2 border-b border-[var(--color-line)] py-8 transition-colors duration-300 hover:bg-[var(--color-surface)]/60 md:grid-cols-[80px_1fr_1.1fr] md:items-center md:py-9"
             data-reveal
@@ -41,9 +41,9 @@ const { notes } = content;
       <span class="spotlight-sweep pointer-events-none absolute inset-y-0 w-1/3" aria-hidden="true"></span>
       <div class="relative flex flex-col gap-3 md:flex-row md:items-baseline md:gap-8">
         <span class="font-mono text-xs font-medium uppercase tracking-[0.28em] text-[var(--color-ember)]">
-          {notes.afterHours.label}
+          {philosophy.afterHours.label}
         </span>
-        <p class="max-w-3xl font-display text-xl text-[var(--color-text)] md:text-2xl">{notes.afterHours.body}</p>
+        <p class="max-w-3xl font-display text-xl text-[var(--color-text)] md:text-2xl">{philosophy.afterHours.body}</p>
       </div>
     </div>
   </div>
