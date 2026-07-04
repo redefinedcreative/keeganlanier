@@ -40,7 +40,7 @@
   --text:          #1C2733;
   --muted:         #4E5D6C; /* ≥4.5:1 on --bg */
   --faint:         #5E6B77; /* ≥4.5:1 on --bg for small mono labels */
-  --ember:         #C24E05; /* darkened for AA as text on paper */
+  --ember:         #B34905; /* darkened for AA (≥4.5:1) as text on paper */
   --ember-soft:    #A84403; /* kickers darken on light, never lighten */
   --ember-vivid:   #F2660C; /* graphics/fills only — fails AA as small text on paper */
   --on-accent:     #FFF6EA;

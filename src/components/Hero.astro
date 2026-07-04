@@ -115,12 +115,12 @@ const tb = hero.titleBlock;
       <span class="hidden font-mono text-[0.65rem] uppercase tracking-[0.24em] text-[var(--color-faint)] sm:inline"
         >Now showing</span
       >
-      <div class="flex items-center gap-3 font-mono text-[0.7rem] uppercase tracking-[0.18em] text-[var(--color-muted)]">
+      <div class="flex items-center gap-3 overflow-hidden whitespace-nowrap font-mono text-[0.7rem] uppercase tracking-[0.18em] text-[var(--color-muted)]">
         {
           work.items.map((b, i) => (
             <>
               {i > 0 && <span class="text-[var(--color-ember)]">/</span>}
-              <span>{b.name}</span>
+              <span class="shrink-0">{b.name}</span>
             </>
           ))
         }

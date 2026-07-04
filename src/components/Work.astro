@@ -43,9 +43,9 @@ const accentVar = (a: string) => (a === "ink" ? "var(--color-ink)" : "var(--colo
               <span class="corner corner-bl" aria-hidden="true" />
               <span class="corner corner-br" aria-hidden="true" />
 
-              <div class="relative grid gap-8 md:grid-cols-[160px_1fr_auto] md:gap-12">
+              <div class="relative grid gap-8 lg:grid-cols-[160px_1fr_auto] lg:gap-12">
                 {/* sheet number + status stamp */}
-                <div class="flex items-center gap-6 md:flex-col md:items-start md:gap-5">
+                <div class="flex items-center gap-6 lg:flex-col lg:items-start lg:gap-5">
                   <div>
                     <span class="anno block">NO.</span>
                     <span class="font-display text-6xl font-semibold leading-none text-[var(--color-faint)] transition-colors duration-300 group-hover:text-[var(--accent)] md:text-7xl">
@@ -90,7 +90,7 @@ const accentVar = (a: string) => (a === "ink" ? "var(--color-ink)" : "var(--colo
                 </div>
 
                 {/* action */}
-                <div class="flex items-center justify-between gap-4 md:flex-col md:items-end md:justify-start md:pt-1 md:text-right">
+                <div class="flex items-center justify-between gap-4 lg:flex-col lg:items-end lg:justify-start lg:pt-1 lg:text-right">
                   <span class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.16em] text-[var(--color-text)] transition-colors duration-300 group-hover:text-[var(--accent)]">
                     {b.cta}
                     <Icon name="arrow" class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
