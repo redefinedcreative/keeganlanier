@@ -15,6 +15,9 @@ const { title = meta.title, description = meta.description } = Astro.props;
 // Canonical URL for this page, resolved against the configured `site`.
 const canonical = new URL(Astro.url.pathname, Astro.site ?? meta.url).href;
 
+// Social share image — absolute URL (crawlers ignore relative og:image paths).
+const ogImage = new URL("/og.png", Astro.site ?? meta.url).href;
+
 // Real, public profile links → schema.org sameAs (drop any unfilled "#").
 const sameAs = connect.socials.map((s) => s.href).filter((h) => h && h !== "#");
 
@@ -89,11 +92,16 @@ const jsonLd = {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="2400" />
+    <meta property="og:image:height" content="1260" />
+    <meta property="og:image:alt" content="Keegan Lanier — I build the systems behind the experience. Blueprint-style coaster track drawing." />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
 
     <!-- Media-scoped for first paint; ThemeToggle keeps both accurate on manual switch -->
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F6F1E7" />
