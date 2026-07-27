@@ -2,7 +2,7 @@
   "meta": {
     "name": "Keegan Lanier",
     "title": "Keegan Lanier — Operator. Technologist. Builder.",
-    "description": "Technology leader and product builder. I pair operational rigor with engineering to build software and web systems engineered for outcomes — home of Redefined Creative, Orva, and PlainMind.",
+    "description": "Technology leader and product builder. I pair operational rigor with engineering to build software and web systems engineered for outcomes — home of Redefined Creative, Tavorly, Orva, and PlainMind.",
     "url": "https://keeganlanier.com"
   },
   "nav": {
@@ -54,8 +54,8 @@
   },
   "work": {
     "kicker": "The Work",
-    "heading": "Three builds, drawn to scale.",
-    "lede": "An agency and two apps. Different surfaces, same instinct: build the thing that respects the person using it.",
+    "heading": "Four builds, drawn to scale.",
+    "lede": "An agency, a SaaS platform, and two apps. Different surfaces, same instinct: build the thing that respects the person using it.",
     "thread": "Orva and PlainMind share the same blueprint — calm, private, local-first software that respects your attention instead of mining it. I build the antidote to hype.",
     "items": [
       {
@@ -90,6 +90,36 @@
       },
       {
         "no": "02",
+        "name": "Tavorly",
+        "type": "SaaS Platform",
+        "status": "Now Serving",
+        "tagline": "Change a recipe once. Prove every location got it.",
+        "body": "A multi-tenant recipe platform for restaurant and hospitality brands. Tavorly turns grease-stained binders and out-of-date PDFs into one live source of truth — authored once, approved, and pushed to every kitchen line, with food safety and allergens always correct.",
+        "specs": [
+          {
+            "label": "Role",
+            "value": "Founder, design & engineering"
+          },
+          {
+            "label": "Stack",
+            "value": "React · Hono · Cloudflare Workers · D1"
+          },
+          {
+            "label": "Status",
+            "value": "Live · 2026"
+          }
+        ],
+        "outcomes": [
+          "One live source of truth for every kitchen line — no more binder drift",
+          "Database-per-tenant isolation — each brand's recipes stay their own"
+        ],
+        "href": "https://www.tavorly.com",
+        "linkLabel": "tavorly.com",
+        "cta": "Visit Tavorly",
+        "accent": "ink"
+      },
+      {
+        "no": "03",
         "name": "Orva",
         "type": "iOS App",
         "status": "Testing",
@@ -116,10 +146,10 @@
         "href": "https://getorva.app",
         "linkLabel": "getorva.app",
         "cta": "See Orva",
-        "accent": "ink"
+        "accent": "ember"
       },
       {
-        "no": "03",
+        "no": "04",
         "name": "PlainMind",
         "type": "iOS App",
         "status": "Open Beta",
@@ -146,7 +176,7 @@
         "href": "https://plainmind.app",
         "linkLabel": "plainmind.app",
         "cta": "Join the beta",
-        "accent": "ember"
+        "accent": "ink"
       }
     ]
   },
@@ -216,9 +246,10 @@
         "era": "Section IV",
         "duration": "Founder & builder",
         "title": "Studio and software",
-        "summary": "Redefined Creative, Orva, and PlainMind — built nights and weekends, shipped for real.",
+        "summary": "Redefined Creative, Tavorly, Orva, and PlainMind — built nights and weekends, shipped for real.",
         "highlights": [
           "Web & local SEO studio turning home-service businesses into local authorities",
+          "A multi-tenant SaaS platform for restaurant and hospitality recipe management",
           "Two calm, local-first iOS apps in beta — the antidote to hype"
         ]
       }
@@ -282,6 +313,10 @@
       {
         "label": "Redefined Creative",
         "href": "https://redefinedcreative.com"
+      },
+      {
+        "label": "Tavorly",
+        "href": "https://www.tavorly.com"
       },
       {
         "label": "Orva",

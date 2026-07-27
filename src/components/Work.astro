@@ -16,7 +16,7 @@ const accentVar = (a: string) => (a === "ink" ? "var(--color-ink)" : "var(--colo
         <h2 class="display-xl text-[clamp(2rem,5vw,4rem)]" data-reveal>{work.heading}</h2>
         <p class="mt-6 text-lg text-[var(--color-muted)]" data-reveal>{work.lede}</p>
       </div>
-      <span class="anno mb-2 hidden shrink-0 lg:inline" data-reveal aria-hidden="true">DWG SET — 3 SHEETS</span>
+      <span class="anno mb-2 hidden shrink-0 lg:inline" data-reveal aria-hidden="true">DWG SET — {work.items.length} SHEETS</span>
     </div>
 
     <ul class="mt-14 flex flex-col gap-8">
