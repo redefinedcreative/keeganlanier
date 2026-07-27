@@ -72,8 +72,16 @@ if (wantsHeavyMotion) {
       });
     }
 
+    // When the page loads already scrolled past an element (browser scroll
+    // restoration on reload, or a deep link below it), its once-trigger never
+    // fires and a hide-then-reveal animation would leave it invisible forever.
+    // Skip the entrance for anything already at or above its trigger line.
+    const alreadyPassed = (el: Element, startFrac: number) =>
+      el.getBoundingClientRect().top < window.innerHeight * startFrac;
+
     // ── Section dividers: the hairline draws in as you cross it ────────────
     gsap.utils.toArray<SVGPathElement>(".divider-path").forEach((p) => {
+      if (alreadyPassed(p, 0.85)) return;
       gsap.from(p, {
         drawSVG: "0%",
         duration: 1,
@@ -89,6 +97,7 @@ if (wantsHeavyMotion) {
     gsap.utils.toArray<HTMLElement>(".spec-sheet").forEach((sheet) => {
       sheet.classList.add("is-visible");
       sheet.style.transition = "none";
+      if (alreadyPassed(sheet, 0.85)) return;
       gsap.fromTo(
         sheet,
         { autoAlpha: 0, y: 48 },
@@ -104,6 +113,7 @@ if (wantsHeavyMotion) {
 
     // ── Work: inspection stamps press onto the spec sheets ─────────────────
     gsap.utils.toArray<HTMLElement>(".spec-sheet .stamp").forEach((stamp) => {
+      if (alreadyPassed(stamp, 0.7)) return;
       gsap.from(stamp, {
         opacity: 0,
         scale: 1.3,
@@ -167,7 +177,8 @@ if (wantsHeavyMotion) {
     // ── Footer: the car coasts in and settles at the stop block ────────────
     const brakePath = document.querySelector<SVGPathElement>("#footer-brake-path");
     const footerCar = document.querySelector<SVGCircleElement>("#footer-car");
-    if (brakePath) {
+    const brakePassed = brakePath && alreadyPassed(brakePath.closest("#footer-brake") ?? brakePath, 0.85);
+    if (brakePath && !brakePassed) {
       gsap.from(brakePath, {
         drawSVG: "0%",
         duration: 0.9,
@@ -175,7 +186,7 @@ if (wantsHeavyMotion) {
         scrollTrigger: { trigger: "#footer-brake", start: "top 88%", once: true },
       });
     }
-    if (footerCar && brakePath) {
+    if (footerCar && brakePath && !brakePassed) {
       // Ride the final hill, then decelerate down the brake run to the block.
       const fmp = { path: brakePath, align: brakePath, alignOrigin: [0.5, 0.5] as [number, number] };
       gsap
@@ -185,7 +196,7 @@ if (wantsHeavyMotion) {
         .to(footerCar, { motionPath: { ...fmp, start: 0.62, end: 0.965 }, duration: 1.4, ease: "power3.out" });
     }
     const endline = document.querySelector<HTMLElement>("#footer-endline");
-    if (endline) {
+    if (endline && !alreadyPassed(endline, 0.92)) {
       gsap.from(endline, {
         opacity: 0,
         letterSpacing: "0.08em",
