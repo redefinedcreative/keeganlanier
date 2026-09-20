@@ -8,6 +8,7 @@ Keegan Lanier's background spans hospitality operations (kitchens, P&Ls, and a t
 
 - [Redefined Creative](https://redefinedcreative.com): Web design and local SEO studio that turns home-service businesses into the local authority in their market.
 - [Tavorly](https://www.tavorly.com): Multi-tenant SaaS recipe platform for restaurant and hospitality brands — change a recipe once, prove every location got it. One live source of truth for every kitchen line, with food safety and allergens always correct.
+- [Awning](https://getawning.app): Native macOS menu bar calendar — your whole month, one click from the menu bar, with Join right on the meeting row. No accounts, no analytics, no network requests. $0.99 once.
 - [Orva](https://getorva.app): A calm, local-first iOS calendar and task app that protects your time instead of maximizing it — it caps work hours, guards personal time, and drafts tomorrow's plan each night.
 - [PlainMind](https://plainmind.app): A calm, private, local-first iOS app to save links, music, places, PDFs, and ideas in one tap and find them again with on-device search. No feed, no tracking.
 

@@ -2,7 +2,7 @@
   "meta": {
     "name": "Keegan Lanier",
     "title": "Keegan Lanier — Operator. Technologist. Builder.",
-    "description": "Technology leader and product builder. I pair operational rigor with engineering to build software and web systems engineered for outcomes — home of Redefined Creative, Tavorly, Orva, and PlainMind.",
+    "description": "Technology leader and product builder. I pair operational rigor with engineering to build software and web systems engineered for outcomes — home of Redefined Creative, Tavorly, Awning, Orva, and PlainMind.",
     "url": "https://keeganlanier.com"
   },
   "nav": {
@@ -54,9 +54,9 @@
   },
   "work": {
     "kicker": "The Work",
-    "heading": "Four builds, drawn to scale.",
-    "lede": "An agency, a SaaS platform, and two apps. Different surfaces, same instinct: build the thing that respects the person using it.",
-    "thread": "Orva and PlainMind share the same blueprint — calm, private, local-first software that respects your attention instead of mining it. I build the antidote to hype.",
+    "heading": "Five builds, drawn to scale.",
+    "lede": "An agency, a SaaS platform, and three apps. Different surfaces, same instinct: build the thing that respects the person using it.",
+    "thread": "Awning, Orva, and PlainMind share the same blueprint — calm, private software that respects your attention instead of mining it. I build the antidote to hype.",
     "items": [
       {
         "no": "01",
@@ -120,6 +120,36 @@
       },
       {
         "no": "03",
+        "name": "Awning",
+        "type": "macOS App",
+        "status": "In Review",
+        "tagline": "Your whole month, one click from the menu bar.",
+        "body": "A native menu bar calendar for the Mac. Click the date and your month opens with today's meetings under it — Join is right on the row. No accounts, no analytics, no network requests: it collects nothing, and the site proves it. $0.99, once.",
+        "specs": [
+          {
+            "label": "Role",
+            "value": "Design & engineering"
+          },
+          {
+            "label": "Stack",
+            "value": "Swift · SwiftUI · AppKit"
+          },
+          {
+            "label": "Status",
+            "value": "App Store review · 2026"
+          }
+        ],
+        "outcomes": [
+          "Zero data collected — no analytics, no beacons, no third-party origins",
+          "Native to the pixel: menu bar icon, keyboard shortcuts, VoiceOver pass"
+        ],
+        "href": "https://getawning.app",
+        "linkLabel": "getawning.app",
+        "cta": "See Awning",
+        "accent": "ember"
+      },
+      {
+        "no": "04",
         "name": "Orva",
         "type": "iOS App",
         "status": "Testing",
@@ -146,10 +176,10 @@
         "href": "https://getorva.app",
         "linkLabel": "getorva.app",
         "cta": "See Orva",
-        "accent": "ember"
+        "accent": "ink"
       },
       {
-        "no": "04",
+        "no": "05",
         "name": "PlainMind",
         "type": "iOS App",
         "status": "Open Beta",
@@ -176,7 +206,7 @@
         "href": "https://plainmind.app",
         "linkLabel": "plainmind.app",
         "cta": "Join the beta",
-        "accent": "ink"
+        "accent": "ember"
       }
     ]
   },
@@ -246,11 +276,11 @@
         "era": "Section IV",
         "duration": "Founder & builder",
         "title": "Studio and software",
-        "summary": "Redefined Creative, Tavorly, Orva, and PlainMind — built nights and weekends, shipped for real.",
+        "summary": "Redefined Creative, Tavorly, Awning, Orva, and PlainMind — built nights and weekends, shipped for real.",
         "highlights": [
           "Web & local SEO studio turning home-service businesses into local authorities",
           "A multi-tenant SaaS platform for restaurant and hospitality recipe management",
-          "Two calm, local-first iOS apps in beta — the antidote to hype"
+          "Calm, private apps for Mac and iOS — no accounts, no tracking, the antidote to hype"
         ]
       }
     ]
@@ -317,6 +347,10 @@
       {
         "label": "Tavorly",
         "href": "https://www.tavorly.com"
+      },
+      {
+        "label": "Awning",
+        "href": "https://getawning.app"
       },
       {
         "label": "Orva",
