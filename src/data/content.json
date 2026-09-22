@@ -152,7 +152,7 @@
         "no": "04",
         "name": "Orva",
         "type": "iOS App",
-        "status": "Testing",
+        "status": "In Review",
         "tagline": "The calm operating system for your life.",
         "body": "A calendar and task app that protects your time instead of maximizing it. It caps your work hours, guards personal time, and drafts tomorrow's plan each night for your approval. Local-first and private — no accounts, no servers.",
         "specs": [
@@ -166,7 +166,7 @@
           },
           {
             "label": "Status",
-            "value": "In beta"
+            "value": "App Store review · 2026"
           }
         ],
         "outcomes": [
@@ -182,7 +182,7 @@
         "no": "05",
         "name": "PlainMind",
         "type": "iOS App",
-        "status": "Open Beta",
+        "status": "In Review",
         "tagline": "Save anything. Find it later.",
         "body": "A calm, private place for the links, music, places, and ideas you want to remember. Save from any app in one tap; everything auto-organizes by type, and on-device search finds it again. No feed, no tracking.",
         "specs": [
@@ -196,7 +196,7 @@
           },
           {
             "label": "Status",
-            "value": "Open beta"
+            "value": "App Store review · 2026"
           }
         ],
         "outcomes": [
